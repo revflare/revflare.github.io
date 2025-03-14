@@ -1,4 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
+  // Make sure modals are hidden on page load
+  const modals = document.querySelectorAll('.modal');
+  modals.forEach(modal => {
+    modal.style.display = 'none';
+    modal.classList.remove('show');
+  });
   // Cache frequently used elements
   const header = document.querySelector('header');
   const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
