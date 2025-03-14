@@ -170,6 +170,11 @@ section::before {
   background: linear-gradient(to bottom, var(--dark), var(--darker));
 }
 
+.testimonials {
+  background-color: var(--dark);
+  padding: 80px 0;
+}
+
 /* Buttons */
 .btn {
   display: inline-block;
@@ -407,6 +412,53 @@ nav {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent;
+}
+
+/* Beta Info Element */
+.beta-info {
+  display: inline-flex;
+  align-items: center;
+  background-color: rgba(146, 21, 246, 0.15);
+  padding: 8px 15px;
+  border-radius: 50px;
+  margin-bottom: 15px;
+  border: 1px solid rgba(146, 21, 246, 0.3);
+}
+
+.beta-icon {
+  color: var(--accent);
+  margin-right: 10px;
+}
+
+.beta-text {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--light);
+}
+
+.beta-badge {
+  display: inline-flex;
+  align-items: center;
+  background-color: rgba(146, 21, 246, 0.15);
+  padding: 5px 12px;
+  border-radius: 50px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border: 1px solid rgba(146, 21, 246, 0.3);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--light);
+}
+
+.beta-badge i {
+  margin-right: 8px;
+  color: var(--accent);
+}
+
+.beta-note {
+  font-size: 0.9rem;
+  color: var(--gray-light);
+  margin-top: 15px;
 }
 
 .waitlist-counter {
@@ -757,14 +809,31 @@ nav {
   margin-bottom: 10px;
 }
 
-.timeline-content h3 {
-  font-size: 1.3rem;
-  margin-bottom: 10px;
+/* Active timeline item styling */
+.timeline-item.active .timeline-content {
+  border: 1px solid rgba(146, 21, 246, 0.3);
+  background-color: rgba(146, 21, 246, 0.05);
 }
 
-.timeline-content p {
-  margin-bottom: 0;
-  font-size: 0.95rem;
+.timeline-badge {
+  display: inline-flex;
+  align-items: center;
+  background-color: rgba(146, 21, 246, 0.15);
+  padding: 5px 12px;
+  border-radius: 50px;
+  margin-bottom: 15px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--light);
+}
+
+.timeline-badge i {
+  margin-right: 8px;
+  color: var(--accent);
+}
+
+.timeline-badge.active {
+  background-color: rgba(146, 21, 246, 0.3);
 }
 
 .timeline-dot {
@@ -777,6 +846,23 @@ nav {
   border-radius: var(--radius-round);
   transform: translateX(-50%);
   box-shadow: var(--shadow-sm);
+}
+
+.timeline-dot.active {
+  background: var(--accent);
+  width: 24px;
+  height: 24px;
+  box-shadow: 0 0 0 4px rgba(146, 21, 246, 0.2);
+}
+
+.timeline-content h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.timeline-content p {
+  margin-bottom: 0;
+  font-size: 0.95rem;
 }
 
 /* CTA Section */
@@ -1104,6 +1190,10 @@ footer {
   margin-top: 25px;
 }
 
+.mt-5 {
+  margin-top: 40px;
+}
+
 .mb-5 {
   margin-bottom: 40px;
 }
@@ -1247,6 +1337,12 @@ footer {
   
   .hero-badges {
     justify-content: center;
+  }
+  
+  .beta-info, .waitlist-counter {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .d-flex {

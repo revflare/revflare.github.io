@@ -1,80 +1,53 @@
-# RevFlare Website
+# revFlare - AI-Powered Database Reactivation
 
-This is the website for RevFlare, an AI-powered database reactivation and lead management solution.
+revFlare helps auto glass and roofing businesses reactivate dormant leads using AI-powered conversations. Our solution reengages old leads in your database, qualifies them, and delivers ready-to-close prospects to your sales team - all without additional ad spend.
 
-## Setup Instructions
+## Current Status
 
-1. **Create the website directory structure** in your project folder:
+This project is currently in **beta testing** with a limited number of auto glass and roofing businesses. The website serves as our landing page for beta applications.
 
-```
-mkdir -p website/assets/{css,js,images,fonts}
-mkdir -p website/blog
-```
+## Website Structure
 
-2. **Copy the files** to their respective locations:
+- `index.html` - Main landing page
+- `assets/css/style.css` - Styling and visual elements
+- `assets/js/scripts.js` - Interactive components
+- `assets/images/` - Website images and graphics
 
-```
-# Copy HTML files to the website root
-cp index.html how-it-works.html early-access.html roadmap.html website/
-cp .nojekyll website/
+## Key Features
 
-# Copy CSS file
-cp style.css website/assets/css/
+- **AI-Powered Lead Reactivation**: Conversational AI that reactivates unconverted leads
+- **Database Integration**: Works with existing CRM systems or CSV uploads
+- **Automated Qualification**: AI identifies which leads are ready to buy
+- **Sales-Ready Handoff**: Your team receives qualified leads with full conversation history
 
-# Copy JavaScript file
-cp scripts.js website/assets/js/
+## Development Roadmap
 
-# Copy blog index file
-cp blog/index.html website/blog/
+1. **Database Reactivation AI** - Currently in beta
+2. **Speed to Lead AI** - Planned for Q2 2025
+3. **Out Of Hours AI** - Planned for Q3 2025
+4. **Google Reviews AI** - Planned for Q4 2025
 
-# Copy the logo SVG
-cp revflare-logo.svg website/assets/images/
-```
+## Technology Stack
 
-3. **Create necessary placeholder images**:
+- HTML5/CSS3/JavaScript
+- FormSubmit.co for form handling
+- Dark theme with flame-inspired color scheme
 
-For the website to work properly, you'll need to create or source placeholder images for:
+## Development
 
-- `assets/images/hero-illustration.svg`
-- `assets/images/step1-database.svg`, `step2-conversation.svg`, etc.
-- `assets/images/solution-preview.svg`
-- `assets/images/database-reactivation.svg`
-- `assets/images/expert-1.jpg`, `expert-2.jpg`
-- `assets/images/testimonial-1.jpg`, `testimonial-2.jpg`, `testimonial-3.jpg`
-- `assets/images/blog-feature.jpg`, `blog-1.jpg`, etc.
-- `assets/images/integration-salesforce.svg`, etc.
+To make changes to the website:
 
-You can use a service like [SVGator](https://www.svgator.com/) to create SVG illustrations or [Unsplash](https://unsplash.com/) for free stock photos.
+1. Clone this repository
+2. Modify files as needed
+3. Test locally
+4. Commit and push changes to main branch
 
-4. **Test the website locally**:
-
-You can use a local server to test the website. If you have Python installed:
-
-```
-cd website
-python -m http.server 8000
+```bash
+git add .
+git commit -m "Your descriptive message"
+git push origin main
 ```
 
-Then visit `http://localhost:8000` in your browser.
+## Contact
 
-5. **Deploy to GitHub Pages**:
-
-- Create a new GitHub repository
-- Initialize Git in your website folder and commit all files
-- Push to GitHub
-- Enable GitHub Pages in the repository settings
-
-## Structure Overview
-
-- **index.html**: Main landing page
-- **how-it-works.html**: Detailed explanation of the product
-- **early-access.html**: Early access application page
-- **roadmap.html**: Product roadmap and future features
-- **blog/index.html**: Blog landing page
-- **assets/css/style.css**: Main stylesheet
-- **assets/js/scripts.js**: Main JavaScript file
-- **assets/images/**: All images and illustrations
-
-## GitHub Pages Setup
-
-The `.nojekyll` file is included to ensure GitHub Pages doesn't process the site with Jekyll, which can cause issues with certain file paths.
+For questions about revFlare or to join our beta program, visit the website and complete the application form.

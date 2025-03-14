@@ -5,15 +5,13 @@ document.addEventListener('DOMContentLoaded', function() {
     modal.style.display = 'none';
     modal.classList.remove('show');
   });
+  
   // Cache frequently used elements
   const header = document.querySelector('header');
   const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
   const navLinks = document.querySelector('.nav-links');
-  const waitlistForm = document.getElementById('waitlist-form');
-  const earlyAccessForm = document.getElementById('early-access-form');
+  const betaForm = document.getElementById('beta-form');
   const animateElements = document.querySelectorAll('.animate-on-scroll');
-  const earlyAccessTrigger = document.getElementById('early-access-trigger');
-  const earlyAccessModal = document.getElementById('early-access-modal');
   const thankyouModal = document.getElementById('thank-you-modal');
   const modalCloseButtons = document.querySelectorAll('.modal-close, .modal-close-btn');
   
@@ -50,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Smooth scrolling for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    if (anchor.getAttribute('href') !== '#early-access-modal') {
+    if (anchor.getAttribute('href') !== '#thank-you-modal') {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
         
@@ -73,14 +71,6 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   });
-
-  // Modal functionality
-  if (earlyAccessTrigger && earlyAccessModal) {
-    earlyAccessTrigger.addEventListener('click', function(e) {
-      e.preventDefault();
-      openModal(earlyAccessModal);
-    });
-  }
 
   // Close modal buttons
   if (modalCloseButtons) {
@@ -127,13 +117,21 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Function to open modal
   function openModal(modal) {
-    modal.classList.add('show');
+    if (!modal) return;
+    modal.style.display = 'block';
+    setTimeout(() => {
+      modal.classList.add('show');
+    }, 10);
     document.body.style.overflow = 'hidden';
   }
 
   // Function to close modal
   function closeModal(modal) {
+    if (!modal) return;
     modal.classList.remove('show');
+    setTimeout(() => {
+      modal.style.display = 'none';
+    }, 300);
     document.body.style.overflow = '';
   }
 
@@ -174,38 +172,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }, { once: true });
   }
   
-  // Waitlist form submission
-  if (waitlistForm) {
-    waitlistForm.addEventListener('submit', function(e) {
-      // Validate email first
-      const emailInput = this.querySelector('input[type="email"]');
-      const email = emailInput.value.trim();
-      
-      if (!email) {
-        e.preventDefault();
-        showFormError(emailInput, 'Please enter your email address.');
-        return;
-      }
-      
-      if (!validateEmail(email)) {
-        e.preventDefault();
-        showFormError(emailInput, 'Please enter a valid email address.');
-        return;
-      }
-      
-      // Show loading state
-      const submitBtn = this.querySelector('button[type="submit"]');
-      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
-      submitBtn.disabled = true;
-      
-      // After successful submission, redirect to thank you page
-      // handled by FormSubmit's _next parameter
-    });
-  }
-
-  // Early access form submission
-  if (earlyAccessForm) {
-    earlyAccessForm.addEventListener('submit', function(e) {
+  // Beta form submission
+  if (betaForm) {
+    betaForm.addEventListener('submit', function(e) {
       // Validate required fields
       let isValid = true;
       
