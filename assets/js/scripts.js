@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const modalCloseButtons = document.querySelectorAll('.modal-close, .modal-close-btn');
   
   // Initialize stat counters
-  const statFollowup = document.getElementById('stat-followup');
-  const statCost = document.getElementById('stat-cost');
+  const statConversion = document.getElementById('stat-conversion');
+  const statResponse = document.getElementById('stat-response');
   const statRevenue = document.getElementById('stat-revenue');
   
   // Add scroll event listener for header
@@ -87,6 +87,31 @@ document.addEventListener('DOMContentLoaded', function() {
     if (e.target.classList.contains('modal')) {
       closeModal(e.target);
     }
+  });
+
+  // Animate conversation elements
+  function animateConversation() {
+    const messages = document.querySelectorAll('.message');
+    messages.forEach((message, index) => {
+      setTimeout(() => {
+        message.style.opacity = '1';
+        message.style.transform = 'translateY(0)';
+      }, 1000 + (index * 800));
+    });
+    
+    // Show typing indicator after the last message
+    setTimeout(() => {
+      const typingMessage = document.querySelector('.message.typing');
+      if (typingMessage) {
+        typingMessage.style.opacity = '1';
+        typingMessage.style.transform = 'translateY(0)';
+      }
+    }, 1000 + (messages.length * 800));
+  }
+  
+  // Call animation functions after page load
+  window.addEventListener('load', function() {
+    animateConversation();
   });
 
   // Animate stat counters
@@ -227,18 +252,18 @@ document.addEventListener('DOMContentLoaded', function() {
           const statHighlights = element.querySelectorAll('.stat-highlight');
           if (statHighlights.length > 0) {
             // Start counters
-            if (statFollowup && !statFollowup.dataset.animated) {
-              animateCounter(statFollowup, 73);
-              statFollowup.dataset.animated = true;
+            if (statConversion && !statConversion.dataset.animated) {
+              animateCounter(statConversion, 78);
+              statConversion.dataset.animated = true;
             }
             
-            if (statCost && !statCost.dataset.animated) {
-              animateCounter(statCost, 10);
-              statCost.dataset.animated = true;
+            if (statResponse && !statResponse.dataset.animated) {
+              animateCounter(statResponse, 7);
+              statResponse.dataset.animated = true;
             }
             
             if (statRevenue && !statRevenue.dataset.animated) {
-              animateCounter(statRevenue, 1000);
+              animateCounter(statRevenue, 32);
               statRevenue.dataset.animated = true;
             }
           }
@@ -270,8 +295,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // Increment waitlist counter for demo purposes
   const waitlistCounter = document.querySelector('.waitlist-counter-text');
   if (waitlistCounter) {
-    // Get a random number between 120-150
-    const baseCount = Math.floor(Math.random() * (150 - 120 + 1)) + 120;
+    // Get a random number between 140-160
+    const baseCount = Math.floor(Math.random() * (160 - 140 + 1)) + 140;
     
     // Set initial count
     let count = baseCount;
@@ -285,9 +310,9 @@ document.addEventListener('DOMContentLoaded', function() {
         waitlistCounter.textContent = `${count} businesses on the waitlist`;
         
         // Add a pulse animation
-        waitlistCounter.classList.add('pulse');
+        waitlistCounter.parentElement.classList.add('pulse');
         setTimeout(() => {
-          waitlistCounter.classList.remove('pulse');
+          waitlistCounter.parentElement.classList.remove('pulse');
         }, 1000);
       }
     }, 5000); // Check every 5 seconds
