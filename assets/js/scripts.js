@@ -291,30 +291,4 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }, 500);
   }
-  
-  // Increment waitlist counter for demo purposes
-  const waitlistCounter = document.querySelector('.waitlist-counter-text');
-  if (waitlistCounter) {
-    // Get a random number between 140-160
-    const baseCount = Math.floor(Math.random() * (160 - 140 + 1)) + 140;
-    
-    // Set initial count
-    let count = baseCount;
-    waitlistCounter.textContent = `${count} businesses on the waitlist`;
-    
-    // Increment occasionally to create FOMO effect
-    setInterval(() => {
-      // 10% chance to increment on each interval
-      if (Math.random() < 0.1) {
-        count++;
-        waitlistCounter.textContent = `${count} businesses on the waitlist`;
-        
-        // Add a pulse animation
-        waitlistCounter.parentElement.classList.add('pulse');
-        setTimeout(() => {
-          waitlistCounter.parentElement.classList.remove('pulse');
-        }, 1000);
-      }
-    }, 5000); // Check every 5 seconds
-  }
 });
