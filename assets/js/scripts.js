@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
       setTimeout(() => {
         message.style.opacity = '1';
         message.style.transform = 'translateY(0)';
-      }, 1000 + (index * 800));
+      }, 800 + (index * 600)); // Faster animation
     });
     
     // Show typing indicator after the last message
@@ -106,7 +106,16 @@ document.addEventListener('DOMContentLoaded', function() {
         typingMessage.style.opacity = '1';
         typingMessage.style.transform = 'translateY(0)';
       }
-    }, 1000 + (messages.length * 800));
+    }, 800 + (messages.length * 600)); // Faster animation
+    
+    // Make sure conversation overlays are visible
+    setTimeout(() => {
+      const overlays = document.querySelectorAll('.conversation-overlay');
+      overlays.forEach(overlay => {
+        overlay.style.opacity = '1'; 
+        overlay.style.transform = 'translateX(0)';
+      });
+    }, 1200);
   }
   
   // Call animation functions after page load

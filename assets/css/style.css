@@ -363,6 +363,39 @@ footer {
   .spin-label {
     font-size: 0.8rem;
   }
+  
+  /* Mobile-specific conversation container adjustments */
+  .conversation-container {
+    height: 400px;
+  }
+  
+  .ai-conversation {
+    padding: 15px;
+    padding-right: 15px; /* Reset the padding on mobile */
+  }
+  
+  .conversation-overlay {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
+    margin-bottom: 15px;
+    transform: none;
+    animation: fadeIn 0.5s ease forwards;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  .conversation-status {
+    margin-bottom: 0;
+    flex: 1;
+    text-align: center;
+  }
+  
+  .message {
+    max-width: 90%;
+  }
 }
 
 /* Base Styles */
@@ -481,6 +514,7 @@ img {
   height: auto;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
+  display: block; /* Prevent inline image issues */
 }
 
 strong {
@@ -904,6 +938,7 @@ nav {
   left: 0;
   overflow: hidden;
   z-index: 1;
+  pointer-events: none; /* Prevent interference with clicks */
 }
 
 .particle {
@@ -938,6 +973,13 @@ nav {
   top: 30%;
   left: 40%;
   animation-delay: 4s;
+}
+
+@media (max-width: 767px) {
+  .particle {
+    /* Smaller particles on mobile */
+    transform: scale(0.7);
+  }
 }
 
 @keyframes float {
@@ -975,6 +1017,7 @@ nav {
 
 .ai-conversation {
   padding: 20px;
+  padding-right: 180px; /* Make room for the overlay */
   height: 100%;
   overflow-y: auto;
   display: flex;
@@ -1064,12 +1107,12 @@ nav {
 
 .conversation-overlay {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  background: rgba(15, 17, 22, 0.85);
+  top: 10px;
+  right: 10px;
+  background: rgba(15, 17, 22, 0.75);
   border-radius: var(--radius-md);
-  padding: 15px;
-  width: 180px;
+  padding: 12px;
+  width: 160px;
   backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: var(--shadow-md);
@@ -1077,6 +1120,24 @@ nav {
   transform: translateX(10px);
   opacity: 0;
   animation: slideIn 0.5s ease forwards 1s;
+}
+
+.mobile-only {
+  display: none;
+}
+
+.desktop-only {
+  display: block;
+}
+
+@media (max-width: 767px) {
+  .mobile-only {
+    display: block;
+  }
+  
+  .desktop-only {
+    display: none;
+  }
 }
 
 .conversation-status {
