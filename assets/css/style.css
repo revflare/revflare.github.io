@@ -1,4 +1,11 @@
-* Mobile-first Style.css for revFlare with optimized colors and responsive design */
+/* Mobile-first Style.css for revFlare with optimized colors and responsive design */
+
+/* CSS Reset */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 :root {
   /* Color scheme from logo */
@@ -27,7 +34,7 @@
   
   /* Typography */
   --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   
   /* Spacing and sizing variables */
   --spacing-xs: 0.25rem;
@@ -55,15 +62,10 @@
 }
 
 /* Base Styles - Mobile First */
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 70px;
+  font-size: 16px;
 }
 
 body {
@@ -127,7 +129,6 @@ img {
   max-width: 100%;
   height: auto;
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
   display: block; /* Prevent inline image issues */
 }
 
@@ -413,6 +414,7 @@ nav {
   padding: 20px 0;
   align-items: center;
   box-shadow: var(--shadow-md);
+  z-index: 100;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -616,6 +618,7 @@ nav {
   overflow: hidden;
   height: 400px;
   z-index: 2;
+  margin-bottom: 20px;
 }
 
 .ai-conversation {
@@ -921,18 +924,18 @@ nav {
   margin-right: 8px;
 }
 
-/* SPIN Diagram - Mobile First */
+/* SPIN Diagram - Mobile First with Better Responsive Design */
 .spin-diagram {
   position: relative;
   width: 100%;
   height: auto;
-  min-height: 500px;
+  min-height: 300px;
   background: rgba(15, 17, 22, 0.6);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
   border: 1px solid rgba(255, 255, 255, 0.08);
   overflow: hidden;
-  padding: 15px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -968,10 +971,16 @@ nav {
   color: var(--light);
 }
 
+.spin-quadrants-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 15px;
+  margin-top: 15px;
+}
+
 .spin-quadrant {
-  position: relative;
-  width: 140px;
-  height: 140px;
+  width: 100%;
   background: rgba(30, 33, 38, 0.4);
   box-shadow: var(--shadow-md);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -980,7 +989,11 @@ nav {
   display: flex;
   flex-direction: column;
   transition: all var(--transition-normal);
-  margin: 10px auto 20px;
+}
+
+.spin-quadrant:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
 }
 
 .spin-letter {
@@ -1344,12 +1357,13 @@ nav {
 
 .chart-label {
   position: absolute;
-  bottom: -25px;
+  bottom: -30px;
   left: 50%;
   transform: translateX(-50%);
   white-space: nowrap;
   font-size: 0.85rem;
   color: var(--gray-light);
+  width: max-content;
 }
 
 .chart-value {
@@ -1581,7 +1595,7 @@ nav {
   border: 1px solid rgba(255, 255, 255, 0.1);
   max-width: 500px;
   width: 90%;
-  margin: 50px auto;
+  margin: 80px auto;
   position: relative;
   transform: translateY(-30px);
   opacity: 0;
@@ -1716,8 +1730,8 @@ footer {
   position: fixed;
   right: 20px;
   bottom: 20px;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   background: rgba(15, 17, 22, 0.8);
   border-radius: 50%;
   display: flex;
@@ -1870,6 +1884,14 @@ footer {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+  
+  .spin-quadrants-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    position: relative;
   }
   
   .spin-quadrant {
