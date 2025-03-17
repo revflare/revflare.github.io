@@ -1,12 +1,8 @@
+/**
+ * revFlare - Enhanced JS with optimized performance and mobile support
+ */
 document.addEventListener('DOMContentLoaded', function() {
-  // Make sure modals are hidden on page load
-  const modals = document.querySelectorAll('.modal');
-  modals.forEach(modal => {
-    modal.style.display = 'none';
-    modal.classList.remove('show');
-  });
-  
-  // Cache frequently used elements
+  // Cache DOM elements
   const header = document.querySelector('header');
   const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
   const navLinks = document.querySelector('.nav-links');
@@ -14,38 +10,90 @@ document.addEventListener('DOMContentLoaded', function() {
   const animateElements = document.querySelectorAll('.animate-on-scroll');
   const thankyouModal = document.getElementById('thank-you-modal');
   const modalCloseButtons = document.querySelectorAll('.modal-close, .modal-close-btn');
+  const backToTop = document.querySelector('.back-to-top');
   
-  // Initialize stat counters
+  // Stat counters
   const statConversion = document.getElementById('stat-conversion');
   const statResponse = document.getElementById('stat-response');
   const statRevenue = document.getElementById('stat-revenue');
   
-  // Add scroll event listener for header
-  window.addEventListener('scroll', function() {
+  // Hide modals on page load
+  const modals = document.querySelectorAll('.modal');
+  modals.forEach(modal => {
+    modal.style.display = 'none';
+  });
+  
+  // Throttle function to limit execution frequency
+  function throttle(callback, delay = 100) {
+    let timeoutId;
+    let lastExecTime = 0;
+    
+    return function(...args) {
+      const context = this;
+      const currentTime = Date.now();
+      const timeSinceLastExec = currentTime - lastExecTime;
+      
+      const execute = () => {
+        lastExecTime = Date.now();
+        callback.apply(context, args);
+      };
+      
+      if (timeSinceLastExec > delay) {
+        execute();
+      } else {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(execute, delay - timeSinceLastExec);
+      }
+    };
+  }
+  
+  // Add scroll event listener for header and back to top
+  window.addEventListener('scroll', throttle(function() {
+    // Header scrolled effect
     if (window.scrollY > 50) {
       header.classList.add('scrolled');
     } else {
       header.classList.remove('scrolled');
     }
     
+    // Back to top button visibility
+    if (window.scrollY > 300) {
+      backToTop.classList.add('show');
+    } else {
+      backToTop.classList.remove('show');
+    }
+    
     // Call animate on scroll
     animateOnScroll();
-  });
-
-  // Mobile menu toggle
+  }, 50));
+  
+  // Mobile menu toggle with ARIA support
   if (mobileMenuBtn && navLinks) {
     mobileMenuBtn.addEventListener('click', function() {
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', !isExpanded);
       navLinks.classList.toggle('active');
       
       // Toggle hamburger-to-x animation
       if (navLinks.classList.contains('active')) {
-        mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+        this.innerHTML = '<i class="fas fa-times" aria-hidden="true"></i>';
       } else {
-        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        this.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
+      }
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+      if (navLinks.classList.contains('active') && 
+          !e.target.closest('.nav-links') && 
+          !e.target.closest('.mobile-menu-btn')) {
+        navLinks.classList.remove('active');
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
       }
     });
   }
-
+  
   // Smooth scrolling for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     if (anchor.getAttribute('href') !== '#thank-you-modal') {
@@ -57,15 +105,19 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
+          // Get header height for proper scroll positioning
+          const headerHeight = header.offsetHeight;
+          
           window.scrollTo({
-            top: targetElement.offsetTop - 80,
+            top: targetElement.offsetTop - headerHeight - 20,
             behavior: 'smooth'
           });
           
           // Close mobile menu if open
           if (navLinks && navLinks.classList.contains('active')) {
             navLinks.classList.remove('active');
-            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            mobileMenuBtn.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
           }
         }
       });
@@ -73,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Close modal buttons
-  if (modalCloseButtons) {
+  if (modalCloseButtons.length > 0) {
     modalCloseButtons.forEach(button => {
       button.addEventListener('click', function() {
         const modal = this.closest('.modal');
@@ -86,6 +138,13 @@ document.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('click', function(e) {
     if (e.target.classList.contains('modal')) {
       closeModal(e.target);
+    }
+  });
+
+  // Close modal on ESC key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && document.querySelector('.modal.show')) {
+      closeModal(document.querySelector('.modal.show'));
     }
   });
 
@@ -121,6 +180,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // Call animation functions after page load
   window.addEventListener('load', function() {
     animateConversation();
+    // Initial call for elements that are already in viewport
+    setTimeout(animateOnScroll, 100);
   });
 
   // Animate stat counters
@@ -152,21 +213,33 @@ document.addEventListener('DOMContentLoaded', function() {
   // Function to open modal
   function openModal(modal) {
     if (!modal) return;
+    
+    // Close any open modals first
+    const openModals = document.querySelectorAll('.modal.show');
+    openModals.forEach(openModal => closeModal(openModal));
+    
     modal.style.display = 'block';
-    setTimeout(() => {
-      modal.classList.add('show');
-    }, 10);
+    // Force reflow to enable transition
+    modal.offsetHeight;
+    modal.classList.add('show');
     document.body.style.overflow = 'hidden';
+    
+    // Focus the first button in the modal for accessibility
+    setTimeout(() => {
+      const firstButton = modal.querySelector('button');
+      if (firstButton) firstButton.focus();
+    }, 100);
   }
 
   // Function to close modal
   function closeModal(modal) {
     if (!modal) return;
+    
     modal.classList.remove('show');
     setTimeout(() => {
       modal.style.display = 'none';
+      document.body.style.overflow = '';
     }, 300);
-    document.body.style.overflow = '';
   }
 
   // Form validation and submission
@@ -177,67 +250,121 @@ document.addEventListener('DOMContentLoaded', function() {
   
   function showFormError(input, message) {
     // Remove any existing error messages
-    const existingError = input.parentNode.querySelector('.form-error');
-    if (existingError) {
-      existingError.remove();
-    }
+    removeFormError(input);
     
     // Create and add error message
     const errorDiv = document.createElement('div');
     errorDiv.className = 'form-error';
     errorDiv.textContent = message;
-    errorDiv.style.color = '#ff4d4d';
-    errorDiv.style.fontSize = '0.875rem';
-    errorDiv.style.marginTop = '5px';
     
     // Add visual indication to the input
-    input.style.borderColor = '#ff4d4d';
-    input.style.boxShadow = '0 0 0 2px rgba(255, 77, 77, 0.2)';
+    input.classList.add('is-invalid');
     
     input.parentNode.insertBefore(errorDiv, input.nextSibling);
     
     // Remove error styling when input changes
     input.addEventListener('input', function() {
-      this.style.borderColor = '';
-      this.style.boxShadow = '';
-      if (errorDiv.parentNode) {
-        errorDiv.remove();
-      }
+      removeFormError(this);
     }, { once: true });
+  }
+  
+  function removeFormError(input) {
+    // Remove existing error message
+    const existingError = input.parentNode.querySelector('.form-error');
+    if (existingError) {
+      existingError.remove();
+    }
+    
+    // Remove visual indication
+    input.classList.remove('is-invalid');
   }
   
   // Beta form submission
   if (betaForm) {
     betaForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
       // Validate required fields
       let isValid = true;
       
-      // Validate required fields
+      // Validate all required fields
       this.querySelectorAll('[required]').forEach(field => {
         if (!field.value.trim()) {
-          e.preventDefault();
           showFormError(field, 'This field is required.');
           isValid = false;
+          
+          // Focus the first invalid field
+          if (isValid === false && !document.querySelector(':focus')) {
+            field.focus();
+          }
         }
       });
       
       // Validate email
       const emailInput = this.querySelector('input[type="email"]');
       if (emailInput && emailInput.value.trim() && !validateEmail(emailInput.value.trim())) {
-        e.preventDefault();
         showFormError(emailInput, 'Please enter a valid email address.');
         isValid = false;
+        
+        // Focus the email field if it's invalid
+        if (!document.querySelector(':focus')) {
+          emailInput.focus();
+        }
       }
       
       if (!isValid) return;
       
       // Show loading state
       const submitBtn = this.querySelector('button[type="submit"]');
-      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+      const originalBtnText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Submitting...';
       submitBtn.disabled = true;
       
-      // After successful submission, redirect to thank you page
-      // handled by FormSubmit's _next parameter
+      // Use FormSubmit.co as backend service
+      const formData = new FormData(this);
+      fetch(this.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          // Show success modal
+          openModal(thankyouModal);
+          
+          // Reset form
+          betaForm.reset();
+          
+          // Reset button state
+          submitBtn.innerHTML = originalBtnText;
+          submitBtn.disabled = false;
+        } else {
+          throw new Error('Form submission failed');
+        }
+      })
+      .catch(error => {
+        // Handle submission error
+        console.error('Error:', error);
+        
+        // Show error message near submit button
+        const errorMsg = document.createElement('div');
+        errorMsg.className = 'form-error';
+        errorMsg.textContent = 'Something went wrong. Please try again later.';
+        submitBtn.parentNode.appendChild(errorMsg);
+        
+        // Reset button state
+        submitBtn.innerHTML = originalBtnText;
+        submitBtn.disabled = false;
+        
+        // Remove error message after 5 seconds
+        setTimeout(() => {
+          if (errorMsg.parentNode) {
+            errorMsg.remove();
+          }
+        }, 5000);
+      });
     });
   }
 
@@ -257,9 +384,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (isInViewport(element) && !element.classList.contains('animated')) {
           element.classList.add('animated');
           
-          // If this is a stat-card, animate the counters
-          const statHighlights = element.querySelectorAll('.stat-highlight');
-          if (statHighlights.length > 0) {
+          // If this is a stat-card parent, animate the counters
+          if (element.classList.contains('problem-card') || element.querySelector('.stat-highlight')) {
             // Start counters
             if (statConversion && !statConversion.dataset.animated) {
               animateCounter(statConversion, 78);
@@ -279,12 +405,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
     }
-    
-    // Run on load
-    window.addEventListener('load', animateOnScroll);
-    
-    // Initial call for elements that are already in viewport
-    setTimeout(animateOnScroll, 100);
   }
   
   // Animate chart bars
@@ -299,5 +419,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100);
       });
     }, 500);
+  }
+  
+  // Handle URL hash for direct modal opening
+  if (window.location.hash === '#thank-you-modal' && thankyouModal) {
+    openModal(thankyouModal);
+    
+    // Clean the URL
+    history.replaceState(null, null, ' ');
   }
 });

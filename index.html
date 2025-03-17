@@ -24,19 +24,19 @@
 </head>
 <body>
   <!-- Header -->
-  <header>
+  <header id="top">
     <div class="container">
-      <nav>
-        <a href="#" class="logo">
-          <img src="assets/images/revflare-logo.png" alt="revFlare Logo">
+      <nav aria-label="Main navigation">
+        <a href="#" class="logo" aria-label="revFlare Home">
+          <img src="assets/images/revflare-logo.png" alt="revFlare Logo" width="35" height="35">
           revFlare
         </a>
         
-        <button class="mobile-menu-btn">
-          <i class="fas fa-bars"></i>
+        <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+          <i class="fas fa-bars" aria-hidden="true"></i>
         </button>
         
-        <ul class="nav-links">
+        <ul class="nav-links" id="nav-menu">
           <li><a href="#features">Features</a></li>
           <li><a href="#how-it-works">How It Works</a></li>
           <li><a href="#spin-selling">SPIN Selling</a></li>
@@ -50,7 +50,7 @@
   <section class="hero">
     <div class="container">
       <div class="row">
-        <div class="col-6 hero-content animate-on-scroll">
+        <div class="col-md-6 hero-content animate-on-scroll">
           <div class="hero-badges">
             <span class="badge badge-primary">AI-Powered SMS</span>
             <span class="badge badge-secondary">Beta Program</span>
@@ -58,21 +58,21 @@
           <h1>Never Miss a Lead With Instant SMS Response</h1>
           <p>Stop losing sales to slow response times. revFlare initiates intelligent SPIN selling conversations via SMS within seconds of lead capture, qualifying prospects, and handing them over ready to buy.</p>
           <div class="beta-info">
-            <i class="fas fa-bolt beta-icon"></i>
+            <i class="fas fa-bolt beta-icon" aria-hidden="true"></i>
             <span class="beta-text">Currently in beta for home services businesses</span>
           </div>
-          <div class="d-flex gap-3 mt-4">
+          <div class="cta-buttons">
             <a href="#beta-access" class="btn btn-primary btn-large">Apply for Beta Access</a>
             <a href="#how-it-works" class="btn btn-outline btn-large">How It Works</a>
           </div>
         </div>
-        <div class="col-6">
+        <div class="col-md-6">
           <div class="hero-image animate-on-scroll">
             <div class="conversation-container">
               <!-- Mobile-only overlay position -->
               <div class="conversation-overlay mobile-only">
                 <div class="conversation-status">
-                  <div class="status-label">Lead Response Time</div>
+                  <div class="status-label">Response Time</div>
                   <div class="status-value">5 sec</div>
                 </div>
                 <div class="conversation-status">
@@ -144,12 +144,12 @@
       
       <div class="problem-card animate-on-scroll">
         <div class="row">
-          <div class="col-6">
+          <div class="col-md-6">
             <h3>Time is the Enemy of Sales</h3>
             <p>The data is clear: your odds of converting a lead drop dramatically with every minute that passes. For busy home services businesses, maintaining lightning-fast response times is virtually impossible without technology assistance.</p>
             <p>Missing those crucial first minutes means competitors who respond faster will win the business—even if they're more expensive or less qualified.</p>
           </div>
-          <div class="col-6">
+          <div class="col-md-6">
             <div class="stat-card">
               <div class="stat-highlight"><span id="stat-conversion">78</span><span class="percentage-sign">%</span></div>
               <p>decrease in lead conversion probability after just 30 minutes</p>
@@ -181,11 +181,11 @@
       </div>
       
       <div class="row align-items-center mb-5">
-        <div class="col-6 animate-on-scroll">
+        <div class="col-md-6 animate-on-scroll">
           <div class="solution-image">
             <div class="spin-diagram">
               <div class="spin-center">
-                <div class="spin-icon"><i class="fas fa-comment-dots"></i></div>
+                <div class="spin-icon"><i class="fas fa-comment-dots" aria-hidden="true"></i></div>
                 <div class="spin-label">SPIN Selling</div>
               </div>
               <div class="spin-quadrant situation">
@@ -212,7 +212,7 @@
             </div>
           </div>
         </div>
-        <div class="col-6 animate-on-scroll">
+        <div class="col-md-6 animate-on-scroll">
           <h3>Automate the Perfect Sales Conversation</h3>
           <p>Our AI leverages the proven SPIN selling methodology through SMS to engage leads in meaningful conversations that uncover their true needs, position your service as the solution, and create urgency to act.</p>
           <p>The result? Pre-qualified leads that are primed and ready for your team to close with minimal effort.</p>
@@ -234,13 +234,13 @@
           
           <div class="feature-badges">
             <span class="feature-badge">
-              <i class="fas fa-check-circle"></i> Works 24/7 without breaks
+              <i class="fas fa-check-circle" aria-hidden="true"></i> Works 24/7 without breaks
             </span>
             <span class="feature-badge">
-              <i class="fas fa-check-circle"></i> Handles unlimited leads simultaneously
+              <i class="fas fa-check-circle" aria-hidden="true"></i> Handles unlimited leads simultaneously
             </span>
             <span class="feature-badge">
-              <i class="fas fa-check-circle"></i> Natural, conversational AI
+              <i class="fas fa-check-circle" aria-hidden="true"></i> Natural, conversational AI
             </span>
           </div>
         </div>
@@ -250,28 +250,28 @@
       <div class="integration-methods animate-on-scroll">
         <h3 class="text-center">Multiple Lead Capture Methods</h3>
         <div class="row">
-          <div class="col-4">
+          <div class="col-md-4 col-sm-12">
             <div class="integration-card">
               <div class="integration-icon">
-                <i class="fas fa-code"></i>
+                <i class="fas fa-code" aria-hidden="true"></i>
               </div>
               <h4>Website Forms</h4>
               <p>Connect your existing forms to our SMS AI through a simple API integration or webhook.</p>
             </div>
           </div>
-          <div class="col-4">
+          <div class="col-md-4 col-sm-12">
             <div class="integration-card">
               <div class="integration-icon">
-                <i class="fas fa-phone-alt"></i>
+                <i class="fas fa-phone-alt" aria-hidden="true"></i>
               </div>
               <h4>Missed Calls</h4>
               <p>Capture missed calls and instantly engage potential customers via SMS before they call a competitor.</p>
             </div>
           </div>
-          <div class="col-4">
+          <div class="col-md-4 col-sm-12">
             <div class="integration-card">
               <div class="integration-icon">
-                <i class="fas fa-comment-alt"></i>
+                <i class="fas fa-comment-alt" aria-hidden="true"></i>
               </div>
               <h4>SMS Integration</h4>
               <p>Built on Twilio's reliable SMS infrastructure for high-deliverability and consistent performance.</p>
@@ -292,7 +292,7 @@
       
       <div class="spin-process animate-on-scroll">
         <div class="row">
-          <div class="col-3">
+          <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="spin-process-card situation">
               <div class="spin-process-icon">S</div>
               <h3>Situation Questions</h3>
@@ -303,7 +303,7 @@
               </div>
             </div>
           </div>
-          <div class="col-3">
+          <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="spin-process-card problem">
               <div class="spin-process-icon">P</div>
               <h3>Problem Questions</h3>
@@ -314,7 +314,7 @@
               </div>
             </div>
           </div>
-          <div class="col-3">
+          <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="spin-process-card implication">
               <div class="spin-process-icon">I</div>
               <h3>Implication Questions</h3>
@@ -325,7 +325,7 @@
               </div>
             </div>
           </div>
-          <div class="col-3">
+          <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="spin-process-card need">
               <div class="spin-process-icon">N</div>
               <h3>Need-Payoff Questions</h3>
@@ -371,9 +371,9 @@
       
       <div class="text-center mt-5">
         <div class="feature-highlight animate-on-scroll">
-          <div class="d-flex align-items-center justify-content-center">
+          <div class="feature-content-wrapper">
             <div class="feature-icon">
-              <i class="fas fa-robot"></i>
+              <i class="fas fa-robot" aria-hidden="true"></i>
             </div>
             <div class="feature-content">
               <h3>Intelligent Conversational AI</h3>
@@ -383,13 +383,13 @@
           
           <div class="feature-badges">
             <span class="feature-badge">
-              <i class="fas fa-comment-dots"></i> Natural language
+              <i class="fas fa-comment-dots" aria-hidden="true"></i> Natural language
             </span>
             <span class="feature-badge">
-              <i class="fas fa-brain"></i> SPIN methodology
+              <i class="fas fa-brain" aria-hidden="true"></i> SPIN methodology
             </span>
             <span class="feature-badge">
-              <i class="fas fa-check-circle"></i> Lead qualification
+              <i class="fas fa-check-circle" aria-hidden="true"></i> Lead qualification
             </span>
           </div>
         </div>
@@ -407,7 +407,7 @@
           </div>
           <div class="testimonial-author">
             <div class="testimonial-avatar">
-              <i class="fas fa-user-circle"></i>
+              <i class="fas fa-user-circle" aria-hidden="true"></i>
             </div>
             <div class="testimonial-info">
               <div class="testimonial-name">Jennifer K.</div>
@@ -432,59 +432,56 @@
           <h3>Limited Beta Pricing: $199/month</h3>
           <p>Beta members lock in this special rate for a full year after launch</p>
           <div class="beta-features">
-            <div class="beta-feature"><i class="fas fa-check"></i> Unlimited SMS conversations</div>
-            <div class="beta-feature"><i class="fas fa-check"></i> Full conversation history</div>
-            <div class="beta-feature"><i class="fas fa-check"></i> Lead qualification scoring</div>
-            <div class="beta-feature"><i class="fas fa-check"></i> Custom SPIN script creation</div>
-            <div class="beta-feature"><i class="fas fa-check"></i> Twilio integration included</div>
+            <div class="beta-feature"><i class="fas fa-check" aria-hidden="true"></i> Unlimited SMS conversations</div>
+            <div class="beta-feature"><i class="fas fa-check" aria-hidden="true"></i> Full conversation history</div>
+            <div class="beta-feature"><i class="fas fa-check" aria-hidden="true"></i> Lead qualification scoring</div>
+            <div class="beta-feature"><i class="fas fa-check" aria-hidden="true"></i> Custom SPIN script creation</div>
+            <div class="beta-feature"><i class="fas fa-check" aria-hidden="true"></i> Twilio integration included</div>
           </div>
         </div>
       </div>
       
       <div class="waitlist-form animate-on-scroll">
-        <form id="beta-form" action="https://formsubmit.co/revflare@gmail.com" method="POST">
+        <form id="beta-form" action="https://formsubmit.co/revflare@gmail.com" method="POST" novalidate>
           <!-- FormSubmit configuration fields -->
           <input type="hidden" name="_subject" value="New revFlare Beta Application">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_next" value="#thank-you-modal">
           <input type="text" name="_honey" style="display:none">
           
-          <div class="row">
-            <div class="col-6">
-              <div class="form-group">
-                <input type="text" id="name" name="name" class="form-control" placeholder="Full Name*" required>
-              </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="name" class="form-label">Full Name</label>
+              <input type="text" id="name" name="name" class="form-control" placeholder="John Smith" required>
             </div>
-            <div class="col-6">
-              <div class="form-group">
-                <input type="email" id="email" name="email" class="form-control" placeholder="Business Email*" required>
-              </div>
+            <div class="form-group col-md-6">
+              <label for="email" class="form-label">Business Email</label>
+              <input type="email" id="email" name="email" class="form-control" placeholder="john@yourcompany.com" required>
             </div>
           </div>
           
-          <div class="row">
-            <div class="col-6">
-              <div class="form-group">
-                <input type="text" id="company" name="company" class="form-control" placeholder="Company Name*" required>
-              </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="company" class="form-label">Company Name</label>
+              <input type="text" id="company" name="company" class="form-control" placeholder="Your Company Name" required>
             </div>
-            <div class="col-6">
-              <div class="form-group">
-                <select id="industry" name="industry" class="form-control" required>
-                  <option value="">Select Industry*</option>
-                  <option value="HVAC">HVAC</option>
-                  <option value="Roofing">Roofing</option>
-                  <option value="Plumbing">Plumbing</option>
-                  <option value="Electrical">Electrical</option>
-                  <option value="Home Renovation">Home Renovation</option>
-                  <option value="Other Home Services">Other Home Services</option>
-                </select>
-              </div>
+            <div class="form-group col-md-6">
+              <label for="industry" class="form-label">Industry</label>
+              <select id="industry" name="industry" class="form-control" required>
+                <option value="">Select Industry</option>
+                <option value="HVAC">HVAC</option>
+                <option value="Roofing">Roofing</option>
+                <option value="Plumbing">Plumbing</option>
+                <option value="Electrical">Electrical</option>
+                <option value="Home Renovation">Home Renovation</option>
+                <option value="Other Home Services">Other Home Services</option>
+              </select>
             </div>
           </div>
           
           <div class="form-group">
-            <textarea id="message" name="message" class="form-control" rows="4" placeholder="How many new leads do you receive monthly? What's your current response time to new leads?*" required></textarea>
+            <label for="message" class="form-label">Additional Information</label>
+            <textarea id="message" name="message" class="form-control" rows="4" placeholder="How many new leads do you receive monthly? What's your current response time to new leads?" required></textarea>
           </div>
           
           <div class="form-group">
@@ -495,8 +492,8 @@
           </div>
           
           <div class="form-group">
-            <button type="submit" class="btn btn-secondary btn-large" style="width: 100%;">
-              <i class="fas fa-rocket mr-2"></i> Apply for Beta Access
+            <button type="submit" class="btn btn-secondary btn-large w-100">
+              <i class="fas fa-rocket mr-2" aria-hidden="true"></i> Apply for Beta Access
             </button>
           </div>
           <p class="text-center beta-note">Limited spots available. We're accepting applications from home services businesses for our initial beta.</p>
@@ -510,16 +507,16 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-info">
-          <a href="#" class="footer-logo">
+          <a href="#top" class="footer-logo">
             revFlare
           </a>
           <p>Revive Revenue with AI-powered SMS lead engagement.</p>
           <div class="beta-badge">
-            <i class="fas fa-bolt"></i> Speed to Lead AI SMS - Currently in Beta
+            <i class="fas fa-bolt" aria-hidden="true"></i> Speed to Lead AI SMS - Currently in Beta
           </div>
           <div class="social-icons">
-            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
           </div>
         </div>
         
@@ -540,18 +537,23 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="assets/js/scripts.js"></script>
-  
   <!-- Thank You Modal (appears after form submission) -->
-  <div id="thank-you-modal" class="modal">
+  <div id="thank-you-modal" class="modal" role="dialog" aria-labelledby="thank-you-title" aria-hidden="true">
     <div class="modal-content text-center">
-      <span class="modal-close">&times;</span>
-      <i class="fas fa-check-circle modal-icon-success"></i>
-      <h2>Thank You!</h2>
+      <span class="modal-close" aria-label="Close">&times;</span>
+      <i class="fas fa-check-circle modal-icon-success" aria-hidden="true"></i>
+      <h2 id="thank-you-title">Thank You!</h2>
       <p>Your beta application has been received. We'll review your submission and be in touch shortly.</p>
       <button class="btn btn-primary mt-4 modal-close-btn">Close</button>
     </div>
   </div>
+
+  <!-- Back to top button -->
+  <a href="#top" class="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+  </a>
+
+  <!-- Scripts -->
+  <script src="assets/js/scripts.js" defer></script>
 </body>
 </html>
