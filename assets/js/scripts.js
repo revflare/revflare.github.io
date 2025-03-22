@@ -11,8 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const thankyouModal = document.getElementById('thank-you-modal');
   const modalCloseButtons = document.querySelectorAll('.modal-close, .modal-close-btn');
   const backToTop = document.querySelector('.back-to-top');
-  const methodologyTabs = document.querySelectorAll('.tab-btn[data-tab]');
-  const pricingTabs = document.querySelectorAll('.pricing-controls .tab-btn[data-tab]');
   
   // Stat counters
   const statConversion = document.getElementById('stat-conversion');
@@ -125,40 +123,6 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   });
-
-  // Tab functionality for methodology and pricing sections
-  function setupTabs(tabButtons, tabContentPrefix) {
-    if (!tabButtons.length) return;
-    
-    tabButtons.forEach(tab => {
-      tab.addEventListener('click', function() {
-        // Remove active class from all tabs
-        tabButtons.forEach(btn => btn.classList.remove('active'));
-        
-        // Add active class to clicked tab
-        this.classList.add('active');
-        
-        // Get the tab content ID
-        const tabId = `${this.getAttribute('data-tab')}-tab`;
-        
-        // Hide all tab content
-        const allTabPanes = document.querySelectorAll(`${tabContentPrefix} .tab-pane`);
-        allTabPanes.forEach(pane => pane.classList.remove('active'));
-        
-        // Show the active tab content
-        const activePane = document.getElementById(tabId);
-        if (activePane) {
-          activePane.classList.add('active');
-        }
-      });
-    });
-  }
-  
-  // Setup methodology tabs
-  setupTabs(methodologyTabs, '.methodology-tabs');
-  
-  // Setup pricing tabs
-  setupTabs(pricingTabs, '.pricing-tabs');
 
   // Close modal buttons
   if (modalCloseButtons.length > 0) {
@@ -456,12 +420,3 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }, 500);
   }
-  
-  // Handle URL hash for direct modal opening
-  if (window.location.hash === '#thank-you-modal' && thankyouModal) {
-    openModal(thankyouModal);
-    
-    // Clean the URL
-    history.replaceState(null, null, ' ');
-  }
-});
