@@ -100,8 +100,10 @@ function createMessage(text, isOutgoing = false, delay = 0) {
     messageDiv.appendChild(bubbleDiv);
     
     setTimeout(() => {
-        document.getElementById('conversation-demo').appendChild(messageDiv);
-        messageDiv.scrollIntoView({ behavior: 'smooth' });
+        const demo = document.getElementById('conversation-demo');
+        demo.appendChild(messageDiv);
+        // Scroll only the conversation container, not the whole page
+        demo.scrollTop = demo.scrollHeight;
     }, delay);
     
     return delay + text.length * 20 + randomInt(300, 800);
@@ -117,8 +119,10 @@ function createTypingIndicator() {
         typingDiv.appendChild(dot);
     }
     
-    document.getElementById('conversation-demo').appendChild(typingDiv);
-    typingDiv.scrollIntoView({ behavior: 'smooth' });
+    const demo = document.getElementById('conversation-demo');
+    demo.appendChild(typingDiv);
+    // Scroll only the conversation container, not the whole page
+    demo.scrollTop = demo.scrollHeight;
     
     return typingDiv;
 }
@@ -419,7 +423,7 @@ function initParticlesBackground() {
                     }
                 },
                 color: {
-                    value: ["#ff6c00", "#ffb800", "#9215f6"]
+                    value: ["#ff6c00", "#00d9ff", "#9215f6", "#16e287"]
                 },
                 shape: {
                     type: "circle",
@@ -451,8 +455,8 @@ function initParticlesBackground() {
                 line_linked: {
                     enable: true,
                     distance: 150,
-                    color: "#ff6c00",
-                    opacity: 0.2,
+                    color: "#16e287",
+                    opacity: 0.3,
                     width: 1
                 },
                 move: {
@@ -487,7 +491,7 @@ function initParticlesBackground() {
                     grab: {
                         distance: 140,
                         line_linked: {
-                            opacity: 0.5
+                            opacity: 0.6
                         }
                     },
                     push: {
@@ -505,7 +509,16 @@ function initParticlesBackground() {
             particle.style.position = 'absolute';
             particle.style.width = `${randomInt(2, 4)}px`;
             particle.style.height = particle.style.width;
-            particle.style.background = `rgba(${randomInt(200, 255)}, ${randomInt(100, 150)}, 0, ${Math.random() * 0.5 + 0.3})`;
+            
+            // Use a variety of colors
+            const colors = [
+                'rgba(255, 108, 0, 0.5)',   // Orange
+                'rgba(0, 217, 255, 0.5)',   // Cyan
+                'rgba(146, 21, 246, 0.5)',  // Purple
+                'rgba(22, 226, 135, 0.5)'   // Green
+            ];
+            
+            particle.style.background = colors[randomInt(0, colors.length - 1)];
             particle.style.borderRadius = '50%';
             particle.style.top = `${randomInt(0, 100)}%`;
             particle.style.left = `${randomInt(0, 100)}%`;
@@ -583,7 +596,7 @@ function addDashboardStyles() {
         .stat-value {
             font-size: 1rem;
             font-weight: 600;
-            background: linear-gradient(135deg, #ff6c00, #ffb800);
+            background: linear-gradient(135deg, #ff6c00, #16e287);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -603,7 +616,7 @@ function addDashboardStyles() {
         
         .chart-bar {
             flex: 1;
-            background: linear-gradient(180deg, #ff6c00, #9215f6);
+            background: linear-gradient(180deg, #00d9ff, #9215f6);
             border-radius: 4px 4px 0 0;
             transition: height 1s ease-out;
         }
@@ -619,6 +632,10 @@ function addDashboardStyles() {
 
 // ========== Initialize Everything ==========
 document.addEventListener('DOMContentLoaded', () => {
+    // Prevent initial scrolling
+    window.history.scrollRestoration = "manual";
+    window.scrollTo(0, 0);
+    
     // Header and mobile menu
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
@@ -673,6 +690,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     top: targetPosition,
                     behavior: 'smooth'
                 });
+                
+                // Update URL without triggering scroll
+                history.pushState(null, null, targetId);
             }
         });
     });

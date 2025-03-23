@@ -5,6 +5,8 @@
     --primary-color: #ff6c00;
     --secondary-color: #ffb800;
     --accent-color: #9215f6;
+    --accent-cyan: #00d9ff;
+    --accent-green: #16e287;
     --text-color: #ffffff;
     --text-muted: rgba(255, 255, 255, 0.7);
     --card-bg: rgba(30, 31, 40, 0.6);
@@ -14,6 +16,9 @@
     /* Gradients */
     --primary-gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     --accent-gradient: linear-gradient(135deg, var(--accent-color), #6b0fb5);
+    --cyan-gradient: linear-gradient(135deg, var(--accent-cyan), #0085b3);
+    --green-gradient: linear-gradient(135deg, var(--accent-green), #09a563);
+    --mixed-gradient: linear-gradient(135deg, var(--primary-color), var(--accent-cyan), var(--accent-color));
     --card-gradient: linear-gradient(180deg, rgba(30, 31, 40, 0.6), rgba(25, 26, 35, 0.8));
     
     /* Spacing */
@@ -89,7 +94,7 @@ a {
 }
 
 a:hover {
-    color: var(--secondary-color);
+    color: var(--accent-cyan);
 }
 
 ul, ol {
@@ -121,7 +126,7 @@ section {
 }
 
 .section-header h2 {
-    background: var(--primary-gradient);
+    background: var(--mixed-gradient);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -163,14 +168,15 @@ section {
 }
 
 .btn-secondary {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--cyan-gradient);
     color: var(--text-color);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 217, 255, 0.3);
 }
 
 .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: var(--cyan-gradient);
     transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(0, 217, 255, 0.5);
     color: var(--text-color);
 }
 
@@ -229,7 +235,7 @@ section {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--primary-gradient);
+    background: var(--mixed-gradient);
     transition: width 0.3s;
 }
 
@@ -262,7 +268,8 @@ section {
     padding-top: 80px;
     background: linear-gradient(180deg, var(--bg-color), rgba(19, 20, 27, 0.9)), 
                 radial-gradient(circle at 20% 80%, rgba(146, 21, 246, 0.2), transparent 30%),
-                radial-gradient(circle at 80% 20%, rgba(255, 108, 0, 0.2), transparent 30%);
+                radial-gradient(circle at 80% 20%, rgba(0, 217, 255, 0.2), transparent 30%),
+                radial-gradient(circle at 50% 50%, rgba(22, 226, 135, 0.1), transparent 40%);
     position: relative;
     overflow: hidden;
 }
@@ -280,6 +287,10 @@ section {
 
 .hero-text h1 {
     margin-bottom: 1.5rem;
+    background: var(--mixed-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .hero-text p {
@@ -306,6 +317,8 @@ section {
     position: relative;
     overflow: hidden;
     min-height: 400px;
+    max-height: 400px;
+    overflow-y: auto;
     border: 1px solid var(--border-color);
 }
 
@@ -346,7 +359,7 @@ section {
 }
 
 .message-outgoing .message-bubble {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
     border-top-right-radius: 5px;
 }
 
@@ -409,7 +422,8 @@ section {
 /* ========== Problem Section ========== */
 .problem {
     background: linear-gradient(180deg, var(--bg-color), rgba(19, 20, 27, 0.9)), 
-                radial-gradient(circle at 70% 30%, rgba(146, 21, 246, 0.1), transparent 30%);
+                radial-gradient(circle at 70% 30%, rgba(0, 217, 255, 0.1), transparent 30%),
+                radial-gradient(circle at 30% 70%, rgba(22, 226, 135, 0.1), transparent 30%);
 }
 
 .problem-stats {
@@ -434,17 +448,45 @@ section {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
+.stat-card:nth-child(1) .stat-icon {
+    color: var(--primary-color);
+}
+
+.stat-card:nth-child(2) .stat-icon {
+    color: var(--accent-cyan);
+}
+
+.stat-card:nth-child(3) .stat-icon {
+    color: var(--accent-green);
+}
+
 .stat-icon {
     font-size: 2rem;
     margin-bottom: 1rem;
-    color: var(--primary-color);
 }
 
 .stat-number {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
+}
+
+.stat-card:nth-child(1) .stat-number {
     background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.stat-card:nth-child(2) .stat-number {
+    background: var(--cyan-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.stat-card:nth-child(3) .stat-number {
+    background: var(--green-gradient);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -485,7 +527,7 @@ section {
 
 .bar-fill {
     width: 100%;
-    background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(180deg, var(--accent-cyan), var(--accent-green));
     border-radius: var(--border-radius-sm) var(--border-radius-sm) 0 0;
     transition: height 1s ease-out;
     height: 0; /* Will be set by JS */
@@ -514,7 +556,8 @@ section {
 /* ========== Solutions Section ========== */
 .solutions {
     background: linear-gradient(180deg, rgba(19, 20, 27, 0.9), var(--bg-color)), 
-                radial-gradient(circle at 30% 70%, rgba(255, 108, 0, 0.1), transparent 30%);
+                radial-gradient(circle at 30% 70%, rgba(255, 108, 0, 0.1), transparent 30%),
+                radial-gradient(circle at 70% 30%, rgba(146, 21, 246, 0.1), transparent 30%);
 }
 
 .solutions-content {
@@ -536,11 +579,18 @@ section {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
+.solution-card:first-child .solution-icon {
+    background: var(--primary-gradient);
+}
+
+.solution-card:last-child .solution-icon {
+    background: var(--accent-gradient);
+}
+
 .solution-icon {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: var(--primary-gradient);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -560,8 +610,15 @@ section {
     align-items: center;
 }
 
-.solution-features li i {
+.solution-card:first-child .solution-features li i {
     color: var(--primary-color);
+}
+
+.solution-card:last-child .solution-features li i {
+    color: var(--accent-color);
+}
+
+.solution-features li i {
     margin-right: 0.8rem;
 }
 
@@ -578,10 +635,20 @@ section {
     min-height: 150px;
 }
 
+/* Message styling in solution preview */
+.sms-conversation .message-outgoing .message-bubble {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+.sms-conversation .message-incoming .message-bubble {
+    background: rgba(255, 255, 255, 0.05);
+}
+
 /* ========== Methodology Section ========== */
 .methodology {
     background: linear-gradient(180deg, var(--bg-color), rgba(19, 20, 27, 0.9)), 
-                radial-gradient(circle at 80% 50%, rgba(146, 21, 246, 0.1), transparent 30%);
+                radial-gradient(circle at 80% 50%, rgba(0, 217, 255, 0.1), transparent 30%),
+                radial-gradient(circle at 20% 50%, rgba(22, 226, 135, 0.1), transparent 30%);
 }
 
 .methodology-tabs {
@@ -612,11 +679,29 @@ section {
     color: var(--text-muted);
 }
 
-.tab-btn.active {
+.tab-btn:first-child.active {
     background: var(--primary-gradient);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+}
+
+.tab-btn:last-child.active {
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.tab-btn:first-child.active::after {
+    background: var(--primary-gradient);
+}
+
+.tab-btn:last-child.active::after {
+    background: var(--accent-gradient);
+}
+
+.tab-btn.active {
     position: relative;
 }
 
@@ -627,7 +712,6 @@ section {
     left: 0;
     width: 100%;
     height: 3px;
-    background: var(--primary-gradient);
 }
 
 .tab-content {
@@ -671,7 +755,14 @@ section {
     font-size: 1.5rem;
     font-weight: 700;
     flex-shrink: 0;
+}
+
+#spin-content .step-letter {
     background: var(--primary-gradient);
+}
+
+#sandler-content .step-number {
+    background: var(--accent-gradient);
 }
 
 .step-content {
@@ -699,7 +790,8 @@ section {
 /* ========== How It Works Section ========== */
 .how-it-works {
     background: linear-gradient(180deg, rgba(19, 20, 27, 0.9), var(--bg-color)), 
-                radial-gradient(circle at 20% 30%, rgba(255, 108, 0, 0.1), transparent 30%);
+                radial-gradient(circle at 20% 30%, rgba(0, 217, 255, 0.1), transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(146, 21, 246, 0.1), transparent 30%);
 }
 
 .steps-container {
@@ -731,13 +823,29 @@ section {
     right: -30px;
     width: 20px;
     height: 20px;
-    border-top: 2px solid var(--primary-color);
-    border-right: 2px solid var(--primary-color);
+    border-top: 2px solid var(--accent-cyan);
+    border-right: 2px solid var(--accent-cyan);
     transform: translateY(-50%) rotate(45deg);
 }
 
 .step-card:last-child::after {
     display: none;
+}
+
+.step-card:nth-child(1) .step-number {
+    background: var(--primary-gradient);
+}
+
+.step-card:nth-child(2) .step-number {
+    background: var(--cyan-gradient);
+}
+
+.step-card:nth-child(3) .step-number {
+    background: var(--accent-gradient);
+}
+
+.step-card:nth-child(4) .step-number {
+    background: var(--green-gradient);
 }
 
 .step-number {
@@ -748,7 +856,6 @@ section {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: var(--primary-gradient);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -756,10 +863,25 @@ section {
     z-index: 1;
 }
 
+.step-card:nth-child(1) .step-icon {
+    color: var(--primary-color);
+}
+
+.step-card:nth-child(2) .step-icon {
+    color: var(--accent-cyan);
+}
+
+.step-card:nth-child(3) .step-icon {
+    color: var(--accent-color);
+}
+
+.step-card:nth-child(4) .step-icon {
+    color: var(--accent-green);
+}
+
 .step-icon {
     font-size: 2rem;
     margin: 1rem 0 1.5rem;
-    color: var(--primary-color);
 }
 
 .integration-methods {
@@ -789,14 +911,37 @@ section {
     transform: translateY(-5px);
 }
 
-.integration-icon i {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--primary-color);
+.integration-icon:nth-child(1) i {
     background: var(--primary-gradient);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+}
+
+.integration-icon:nth-child(2) i {
+    background: var(--cyan-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.integration-icon:nth-child(3) i {
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.integration-icon:nth-child(4) i {
+    background: var(--green-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.integration-icon i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
 }
 
 .integration-icon span {
@@ -807,7 +952,8 @@ section {
 /* ========== Comparison Section ========== */
 .comparison {
     background: linear-gradient(180deg, var(--bg-color), rgba(19, 20, 27, 0.9)), 
-                radial-gradient(circle at 70% 70%, rgba(146, 21, 246, 0.1), transparent 30%);
+                radial-gradient(circle at 70% 70%, rgba(0, 217, 255, 0.1), transparent 30%),
+                radial-gradient(circle at 30% 30%, rgba(22, 226, 135, 0.1), transparent 30%);
 }
 
 .comparison-table-container {
@@ -846,7 +992,7 @@ section {
 }
 
 .comparison-table i.fa-check {
-    color: var(--primary-color);
+    color: var(--accent-green);
     font-size: 1.2rem;
 }
 
@@ -860,18 +1006,21 @@ section {
     font-size: 1.2rem;
 }
 
-.comparison-table i.fa-clock, .comparison-table i.fa-bolt, .comparison-table i.fa-chart-line {
-    background: var(--primary-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+.comparison-table i.fa-clock {
+    color: var(--accent-cyan);
+    font-size: 1.2rem;
+}
+
+.comparison-table i.fa-bolt {
+    color: var(--primary-color);
     font-size: 1.2rem;
 }
 
 /* ========== Beta Program Section ========== */
 .beta {
     background: linear-gradient(180deg, rgba(19, 20, 27, 0.9), var(--bg-color)), 
-                radial-gradient(circle at 30% 50%, rgba(255, 108, 0, 0.1), transparent 30%);
+                radial-gradient(circle at 30% 50%, rgba(0, 217, 255, 0.1), transparent 30%),
+                radial-gradient(circle at 70% 30%, rgba(22, 226, 135, 0.1), transparent 30%);
 }
 
 .beta-timeline {
@@ -886,7 +1035,7 @@ section {
     bottom: 0;
     left: calc(50px / 2);
     width: 2px;
-    background: linear-gradient(180deg, var(--primary-color), var(--accent-color));
+    background: linear-gradient(180deg, var(--primary-color), var(--accent-cyan), var(--accent-color));
     transform: translateX(-50%);
 }
 
@@ -907,7 +1056,7 @@ section {
     height: 20px;
     border-radius: 50%;
     background: var(--bg-color);
-    border: 2px solid var(--primary-color);
+    border: 2px solid var(--accent-cyan);
     position: absolute;
     top: 0;
     left: 0;
@@ -915,15 +1064,15 @@ section {
 }
 
 .timeline-phase.active .marker-circle {
-    background: var(--primary-gradient);
-    box-shadow: 0 0 15px var(--primary-color);
+    background: var(--mixed-gradient);
+    box-shadow: 0 0 15px var(--accent-cyan);
 }
 
 .marker-label {
     position: absolute;
     top: -5px;
     left: 15px;
-    background: var(--primary-gradient);
+    background: var(--cyan-gradient);
     color: var(--text-color);
     font-size: 0.8rem;
     font-weight: 600;
@@ -941,7 +1090,7 @@ section {
 }
 
 .timeline-phase.active .phase-content {
-    border-color: var(--primary-color);
+    border-color: var(--accent-cyan);
 }
 
 .phase-features {
@@ -957,17 +1106,12 @@ section {
 }
 
 .phase-features li i {
-    color: var(--primary-color);
+    color: var(--accent-green);
     margin-right: 0.8rem;
 }
 
 .pricing-preview {
     margin-top: 4rem;
-}
-
-.pricing-preview h3 {
-    text-align: center;
-    margin-bottom: 2rem;
 }
 
 .pricing-cards {
@@ -991,6 +1135,34 @@ section {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
+.pricing-card:nth-child(1) .plan-price {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.pricing-card:nth-child(2) .plan-price {
+    background: var(--cyan-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.pricing-card:nth-child(3) .plan-price {
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.pricing-card:nth-child(4) .plan-price {
+    background: var(--green-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
 .plan-name {
     font-size: 1.3rem;
     font-weight: 600;
@@ -1001,10 +1173,6 @@ section {
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    background: var(--primary-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
 }
 
 .plan-price span {
@@ -1023,21 +1191,11 @@ section {
     text-align: center;
 }
 
-.discount-badge {
-    display: inline-block;
-    background: var(--primary-gradient);
-    color: var(--text-color);
-    font-size: 1rem;
-    font-weight: 600;
-    padding: 0.5rem 1.5rem;
-    border-radius: 20px;
-    margin-bottom: 1rem;
-}
-
 /* ========== Beta Form Section ========== */
 .beta-form {
     background: linear-gradient(180deg, var(--bg-color), rgba(19, 20, 27, 0.9)), 
-                radial-gradient(circle at 70% 30%, rgba(146, 21, 246, 0.1), transparent 30%);
+                radial-gradient(circle at 70% 30%, rgba(146, 21, 246, 0.1), transparent 30%),
+                radial-gradient(circle at 30% 70%, rgba(22, 226, 135, 0.1), transparent 30%);
 }
 
 .form-container {
@@ -1087,8 +1245,8 @@ section {
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(255, 108, 0, 0.2);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 0 2px rgba(0, 217, 255, 0.2);
 }
 
 .form-group textarea {
@@ -1108,11 +1266,7 @@ section {
 }
 
 .form-message.success {
-    color: #28a745;
-}
-
-.form-message.error {
-    color: #dc3545;
+    color: var(--accent-green);
 }
 
 /* ========== Footer Styles ========== */
@@ -1150,6 +1304,10 @@ section {
 .footer-links-column h4 {
     margin-bottom: 1.2rem;
     font-size: 1.1rem;
+    background: var(--mixed-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .footer-links-column ul {
@@ -1168,7 +1326,7 @@ section {
 }
 
 .footer-links-column ul li a:hover {
-    color: var(--primary-color);
+    color: var(--accent-cyan);
 }
 
 .footer-bottom {
@@ -1195,10 +1353,6 @@ section {
     color: var(--text-muted);
     font-size: 0.9rem;
     transition: color 0.3s;
-}
-
-.legal-links a:hover {
-    color: var(--primary-color);
 }
 
 /* ========== Responsive Styles ========== */

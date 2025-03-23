@@ -30,15 +30,15 @@
             text-align: center;
             padding: 2rem;
             background: linear-gradient(180deg, var(--bg-color), rgba(19, 20, 27, 0.9)), 
-                radial-gradient(circle at 20% 80%, rgba(146, 21, 246, 0.2), transparent 30%),
-                radial-gradient(circle at 80% 20%, rgba(255, 108, 0, 0.2), transparent 30%);
+                radial-gradient(circle at 20% 80%, rgba(0, 217, 255, 0.2), transparent 30%),
+                radial-gradient(circle at 80% 20%, rgba(22, 226, 135, 0.2), transparent 30%),
+                radial-gradient(circle at 50% 50%, rgba(146, 21, 246, 0.1), transparent 40%);
         }
         
         .thank-you-icon {
             font-size: 5rem;
-            color: var(--primary-color);
             margin-bottom: 2rem;
-            background: var(--primary-gradient);
+            background: var(--mixed-gradient);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -50,6 +50,15 @@
             border-radius: var(--border-radius-md);
             padding: 3rem;
             border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .thank-you-content h1 {
+            background: var(--mixed-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1.5rem;
         }
         
         .home-link {
@@ -71,5 +80,12 @@
             </div>
         </div>
     </div>
+    
+    <!-- JavaScript -->
+    <script>
+        // Prevent initial scrolling
+        window.history.scrollRestoration = "manual";
+        window.scrollTo(0, 0);
+    </script>
 </body>
 </html>
