@@ -247,306 +247,149 @@ function initSolutionPreviews() {
     }
 }
 
-// ========== Methodology Diagrams ==========
+// Import the updated methodology diagrams
 function initMethodologyDiagrams() {
-    // SPIN Methodology Diagram
+    // SPIN Methodology Diagram - New modern version
     const spinDiagram = document.getElementById('spin-diagram');
     if (spinDiagram) {
         spinDiagram.innerHTML = `
             <svg width="100%" height="100%" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                    <linearGradient id="spinGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" style="stop-color:#ff6c00;stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#ffb800;stop-opacity:1" />
+                    <linearGradient id="spinBg" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:rgba(255, 108, 0, 0.05);stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:rgba(255, 184, 0, 0.05);stop-opacity:1" />
                     </linearGradient>
+                    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                        <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3" />
+                    </filter>
                 </defs>
                 
-                <!-- Main Flow Path -->
-                <path d="M100,150 C200,50 300,250 400,150 C500,50 600,250 700,150" 
-                      fill="none" stroke="url(#spinGradient)" stroke-width="3" 
-                      stroke-dasharray="5,5" />
+                <!-- Background shape -->
+                <rect x="50" y="70" width="700" height="160" rx="80" ry="80" fill="url(#spinBg)" />
                 
-                <!-- SPIN Circles -->
-                <g class="spin-situation">
-                    <circle cx="100" cy="150" r="40" fill="#1a1b24" stroke="url(#spinGradient)" stroke-width="2" />
-                    <text x="100" y="150" font-family="Arial" font-size="24" fill="url(#spinGradient)" text-anchor="middle" dominant-baseline="middle">S</text>
-                    <text x="100" y="200" font-family="Arial" font-size="14" fill="#ffffff" text-anchor="middle">Situation</text>
+                <!-- Connection Lines -->
+                <path d="M170,150 L270,150" stroke="#ff6c00" stroke-width="2" stroke-dasharray="5,5" />
+                <path d="M370,150 L470,150" stroke="#ff6c00" stroke-width="2" stroke-dasharray="5,5" />
+                <path d="M570,150 L670,150" stroke="#ff6c00" stroke-width="2" stroke-dasharray="5,5" />
+                
+                <!-- SPIN Elements -->
+                <g filter="url(#shadow)">
+                    <circle cx="120" cy="150" r="50" fill="#1a1b24" stroke="#ff6c00" stroke-width="2" />
+                    <text x="120" y="160" font-family="Poppins, sans-serif" font-size="30" font-weight="600" fill="#ff6c00" text-anchor="middle">S</text>
                 </g>
                 
-                <g class="spin-problem">
-                    <circle cx="300" cy="150" r="40" fill="#1a1b24" stroke="url(#spinGradient)" stroke-width="2" />
-                    <text x="300" y="150" font-family="Arial" font-size="24" fill="url(#spinGradient)" text-anchor="middle" dominant-baseline="middle">P</text>
-                    <text x="300" y="200" font-family="Arial" font-size="14" fill="#ffffff" text-anchor="middle">Problem</text>
+                <g filter="url(#shadow)">
+                    <circle cx="320" cy="150" r="50" fill="#1a1b24" stroke="#ff6c00" stroke-width="2" />
+                    <text x="320" y="160" font-family="Poppins, sans-serif" font-size="30" font-weight="600" fill="#ff6c00" text-anchor="middle">P</text>
                 </g>
                 
-                <g class="spin-implication">
-                    <circle cx="500" cy="150" r="40" fill="#1a1b24" stroke="url(#spinGradient)" stroke-width="2" />
-                    <text x="500" y="150" font-family="Arial" font-size="24" fill="url(#spinGradient)" text-anchor="middle" dominant-baseline="middle">I</text>
-                    <text x="500" y="200" font-family="Arial" font-size="14" fill="#ffffff" text-anchor="middle">Implication</text>
+                <g filter="url(#shadow)">
+                    <circle cx="520" cy="150" r="50" fill="#1a1b24" stroke="#ff6c00" stroke-width="2" />
+                    <text x="520" y="160" font-family="Poppins, sans-serif" font-size="30" font-weight="600" fill="#ff6c00" text-anchor="middle">I</text>
                 </g>
                 
-                <g class="spin-needpayoff">
-                    <circle cx="700" cy="150" r="40" fill="#1a1b24" stroke="url(#spinGradient)" stroke-width="2" />
-                    <text x="700" y="150" font-family="Arial" font-size="24" fill="url(#spinGradient)" text-anchor="middle" dominant-baseline="middle">N</text>
-                    <text x="700" y="200" font-family="Arial" font-size="14" fill="#ffffff" text-anchor="middle">Need-Payoff</text>
+                <g filter="url(#shadow)">
+                    <circle cx="720" cy="150" r="50" fill="#1a1b24" stroke="#ff6c00" stroke-width="2" />
+                    <text x="720" y="160" font-family="Poppins, sans-serif" font-size="30" font-weight="600" fill="#ff6c00" text-anchor="middle">N</text>
                 </g>
                 
-                <!-- Flow Arrows -->
-                <path d="M150,150 L250,150" fill="none" stroke="url(#spinGradient)" stroke-width="2" />
-                <polygon points="245,145 255,150 245,155" fill="url(#spinGradient)" />
+                <!-- Labels -->
+                <text x="120" y="220" font-family="Inter, sans-serif" font-size="14" fill="#ffffff" text-anchor="middle">Situation</text>
+                <text x="320" y="220" font-family="Inter, sans-serif" font-size="14" fill="#ffffff" text-anchor="middle">Problem</text>
+                <text x="520" y="220" font-family="Inter, sans-serif" font-size="14" fill="#ffffff" text-anchor="middle">Implication</text>
+                <text x="720" y="220" font-family="Inter, sans-serif" font-size="14" fill="#ffffff" text-anchor="middle">Need-Payoff</text>
                 
-                <path d="M350,150 L450,150" fill="none" stroke="url(#spinGradient)" stroke-width="2" />
-                <polygon points="445,145 455,150 445,155" fill="url(#spinGradient)" />
+                <!-- Progress Arrows -->
+                <path d="M185,150 L255,150" stroke="#ff6c00" stroke-width="2" />
+                <polygon points="250,145 260,150 250,155" fill="#ff6c00" />
                 
-                <path d="M550,150 L650,150" fill="none" stroke="url(#spinGradient)" stroke-width="2" />
-                <polygon points="645,145 655,150 645,155" fill="url(#spinGradient)" />
+                <path d="M385,150 L455,150" stroke="#ff6c00" stroke-width="2" />
+                <polygon points="450,145 460,150 450,155" fill="#ff6c00" />
+                
+                <path d="M585,150 L655,150" stroke="#ff6c00" stroke-width="2" />
+                <polygon points="650,145 660,150 650,155" fill="#ff6c00" />
             </svg>
         `;
     }
     
-    // Sandler Methodology Diagram
+    // Sandler Methodology Diagram - New modern version
     const sandlerDiagram = document.getElementById('sandler-diagram');
     if (sandlerDiagram) {
         sandlerDiagram.innerHTML = `
             <svg width="100%" height="100%" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                    <linearGradient id="sandlerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" style="stop-color:#9215f6;stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#ff6c00;stop-opacity:1" />
+                    <linearGradient id="sandlerBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:rgba(146, 21, 246, 0.05);stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:rgba(0, 217, 255, 0.05);stop-opacity:1" />
                     </linearGradient>
+                    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                        <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3" />
+                    </filter>
                 </defs>
                 
-                <!-- Steps Path -->
-                <path d="M100,250 L700,250" fill="none" stroke="url(#sandlerGradient)" stroke-width="3" />
+                <!-- Background shape - Stair step design -->
+                <path d="M100,260 L700,260 L700,70 L100,70 Z" fill="url(#sandlerBg)" />
                 
-                <!-- Background Pyramid -->
-                <polygon points="400,50 100,250 700,250" fill="rgba(146, 21, 246, 0.1)" stroke="url(#sandlerGradient)" stroke-width="2" />
-                
-                <!-- Sandler Steps -->
-                <g class="sandler-rapport">
-                    <rect x="100" y="220" width="100" height="30" fill="#1a1b24" stroke="url(#sandlerGradient)" stroke-width="2" />
-                    <text x="150" y="240" font-family="Arial" font-size="14" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">Rapport</text>
+                <!-- Steps -->
+                <g filter="url(#shadow)">
+                    <rect x="100" y="210" width="100" height="50" rx="6" ry="6" fill="#1a1b24" stroke="#9215f6" stroke-width="2" />
+                    <text x="150" y="240" font-family="Inter, sans-serif" font-size="14" fill="#ffffff" text-anchor="middle">Rapport</text>
+                    <circle cx="115" cy="225" r="12" fill="#9215f6" />
+                    <text x="115" y="230" font-family="Poppins, sans-serif" font-size="14" font-weight="600" fill="#ffffff" text-anchor="middle">1</text>
                 </g>
                 
-                <g class="sandler-pain">
-                    <rect x="200" y="190" width="100" height="30" fill="#1a1b24" stroke="url(#sandlerGradient)" stroke-width="2" />
-                    <text x="250" y="210" font-family="Arial" font-size="14" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">Pain</text>
+                <g filter="url(#shadow)">
+                    <rect x="210" y="180" width="100" height="50" rx="6" ry="6" fill="#1a1b24" stroke="#9215f6" stroke-width="2" />
+                    <text x="260" y="210" font-family="Inter, sans-serif" font-size="14" fill="#ffffff" text-anchor="middle">Pain</text>
+                    <circle cx="225" cy="195" r="12" fill="#9215f6" />
+                    <text x="225" y="200" font-family="Poppins, sans-serif" font-size="14" font-weight="600" fill="#ffffff" text-anchor="middle">2</text>
                 </g>
                 
-                <g class="sandler-budget">
-                    <rect x="300" y="160" width="100" height="30" fill="#1a1b24" stroke="url(#sandlerGradient)" stroke-width="2" />
-                    <text x="350" y="180" font-family="Arial" font-size="14" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">Budget</text>
+                <g filter="url(#shadow)">
+                    <rect x="320" y="150" width="100" height="50" rx="6" ry="6" fill="#1a1b24" stroke="#9215f6" stroke-width="2" />
+                    <text x="370" y="180" font-family="Inter, sans-serif" font-size="14" fill="#ffffff" text-anchor="middle">Budget</text>
+                    <circle cx="335" cy="165" r="12" fill="#9215f6" />
+                    <text x="335" y="170" font-family="Poppins, sans-serif" font-size="14" font-weight="600" fill="#ffffff" text-anchor="middle">3</text>
                 </g>
                 
-                <g class="sandler-decision">
-                    <rect x="400" y="130" width="100" height="30" fill="#1a1b24" stroke="url(#sandlerGradient)" stroke-width="2" />
-                    <text x="450" y="150" font-family="Arial" font-size="14" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">Decision</text>
+                <g filter="url(#shadow)">
+                    <rect x="430" y="120" width="100" height="50" rx="6" ry="6" fill="#1a1b24" stroke="#9215f6" stroke-width="2" />
+                    <text x="480" y="150" font-family="Inter, sans-serif" font-size="14" fill="#ffffff" text-anchor="middle">Decision</text>
+                    <circle cx="445" cy="135" r="12" fill="#9215f6" />
+                    <text x="445" y="140" font-family="Poppins, sans-serif" font-size="14" font-weight="600" fill="#ffffff" text-anchor="middle">4</text>
                 </g>
                 
-                <g class="sandler-fulfillment">
-                    <rect x="500" y="100" width="100" height="30" fill="#1a1b24" stroke="url(#sandlerGradient)" stroke-width="2" />
-                    <text x="550" y="120" font-family="Arial" font-size="14" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">Fulfillment</text>
+                <g filter="url(#shadow)">
+                    <rect x="540" y="90" width="100" height="50" rx="6" ry="6" fill="#1a1b24" stroke="#9215f6" stroke-width="2" />
+                    <text x="590" y="120" font-family="Inter, sans-serif" font-size="14" fill="#ffffff" text-anchor="middle">Fulfillment</text>
+                    <circle cx="555" cy="105" r="12" fill="#9215f6" />
+                    <text x="555" y="110" font-family="Poppins, sans-serif" font-size="14" font-weight="600" fill="#ffffff" text-anchor="middle">5</text>
                 </g>
                 
-                <g class="sandler-close">
-                    <rect x="600" y="70" width="100" height="30" fill="#1a1b24" stroke="url(#sandlerGradient)" stroke-width="2" />
-                    <text x="650" y="90" font-family="Arial" font-size="14" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">Close</text>
+                <g filter="url(#shadow)">
+                    <rect x="650" y="60" width="100" height="50" rx="6" ry="6" fill="#1a1b24" stroke="#9215f6" stroke-width="2" />
+                    <text x="700" y="90" font-family="Inter, sans-serif" font-size="14" fill="#ffffff" text-anchor="middle">Close</text>
+                    <circle cx="665" cy="75" r="12" fill="#9215f6" />
+                    <text x="665" y="80" font-family="Poppins, sans-serif" font-size="14" font-weight="600" fill="#ffffff" text-anchor="middle">6</text>
                 </g>
                 
-                <!-- Flow Arrows -->
-                <path d="M150,220 L225,190" fill="none" stroke="url(#sandlerGradient)" stroke-width="2" />
-                <polygon points="220,185 230,187 225,195" fill="url(#sandlerGradient)" />
+                <!-- Progress Arrows -->
+                <path d="M205,225 L235,195" stroke="#9215f6" stroke-width="2" />
+                <polygon points="230,190 240,187 235,200" fill="#9215f6" />
                 
-                <path d="M250,190 L325,160" fill="none" stroke="url(#sandlerGradient)" stroke-width="2" />
-                <polygon points="320,155 330,157 325,165" fill="url(#sandlerGradient)" />
+                <path d="M315,195 L345,165" stroke="#9215f6" stroke-width="2" />
+                <polygon points="340,160 350,157 345,165" fill="#9215f6" />
                 
-                <path d="M350,160 L425,130" fill="none" stroke="url(#sandlerGradient)" stroke-width="2" />
-                <polygon points="420,125 430,127 425,135" fill="url(#sandlerGradient)" />
+                <path d="M425,165 L455,135" stroke="#9215f6" stroke-width="2" />
+                <polygon points="450,130 460,127 455,140" fill="#9215f6" />
                 
-                <path d="M450,130 L525,100" fill="none" stroke="url(#sandlerGradient)" stroke-width="2" />
-                <polygon points="520,95 530,97 525,105" fill="url(#sandlerGradient)" />
+                <path d="M535,135 L565,105" stroke="#9215f6" stroke-width="2" />
+                <polygon points="560,100 570,97 565,110" fill="#9215f6" />
                 
-                <path d="M550,100 L625,70" fill="none" stroke="url(#sandlerGradient)" stroke-width="2" />
-                <polygon points="620,65 630,67 625,75" fill="url(#sandlerGradient)" />
+                <path d="M645,105 L675,75" stroke="#9215f6" stroke-width="2" />
+                <polygon points="670,70 680,67 675,80" fill="#9215f6" />
             </svg>
         `;
-    }
-}
-
-// ========== Form Submission ==========
-if (form) {
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Simple validation
-        const requiredFields = form.querySelectorAll('[required]');
-        let isValid = true;
-        
-        requiredFields.forEach(field => {
-            if (!field.value.trim()) {
-                isValid = false;
-                field.classList.add('error');
-            } else {
-                field.classList.remove('error');
-            }
-        });
-        
-        if (isValid) {
-            formMessage.className = 'form-message success';
-            formMessage.textContent = 'Thanks for applying to our beta program! We\'ll be in touch soon.';
-            form.reset();
-            
-            // Simulate actual form submission
-            // In a real implementation, you would submit to FormSubmit.co here
-            // form.submit();
-        } else {
-            formMessage.className = 'form-message error';
-            formMessage.textContent = 'Please fill in all required fields.';
-        }
-    });
-}
-
-// ========== Particles Background ==========
-function initParticlesBackground() {
-    const heroParticles = document.getElementById('hero-particles');
-    if (!heroParticles) return;
-    
-    // Load particles.js library if available
-    if (typeof particlesJS !== 'undefined') {
-        particlesJS('hero-particles', {
-            particles: {
-                number: {
-                    value: 50,
-                    density: {
-                        enable: true,
-                        value_area: 800
-                    }
-                },
-                color: {
-                    value: ["#ff6c00", "#00d9ff", "#9215f6", "#16e287"]
-                },
-                shape: {
-                    type: "circle",
-                    stroke: {
-                        width: 0,
-                        color: "#000000"
-                    }
-                },
-                opacity: {
-                    value: 0.5,
-                    random: true,
-                    anim: {
-                        enable: true,
-                        speed: 1,
-                        opacity_min: 0.1,
-                        sync: false
-                    }
-                },
-                size: {
-                    value: 3,
-                    random: true,
-                    anim: {
-                        enable: true,
-                        speed: 2,
-                        size_min: 0.1,
-                        sync: false
-                    }
-                },
-                line_linked: {
-                    enable: true,
-                    distance: 150,
-                    color: "#16e287",
-                    opacity: 0.3,
-                    width: 1
-                },
-                move: {
-                    enable: true,
-                    speed: 1,
-                    direction: "none",
-                    random: true,
-                    straight: false,
-                    out_mode: "out",
-                    bounce: false,
-                    attract: {
-                        enable: false,
-                        rotateX: 600,
-                        rotateY: 1200
-                    }
-                }
-            },
-            interactivity: {
-                detect_on: "canvas",
-                events: {
-                    onhover: {
-                        enable: true,
-                        mode: "grab"
-                    },
-                    onclick: {
-                        enable: true,
-                        mode: "push"
-                    },
-                    resize: true
-                },
-                modes: {
-                    grab: {
-                        distance: 140,
-                        line_linked: {
-                            opacity: 0.6
-                        }
-                    },
-                    push: {
-                        particles_nb: 3
-                    }
-                }
-            },
-            retina_detect: true
-        });
-    } else {
-        // Fallback if particles.js isn't loaded
-        const createParticle = () => {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.position = 'absolute';
-            particle.style.width = `${randomInt(2, 4)}px`;
-            particle.style.height = particle.style.width;
-            
-            // Use a variety of colors
-            const colors = [
-                'rgba(255, 108, 0, 0.5)',   // Orange
-                'rgba(0, 217, 255, 0.5)',   // Cyan
-                'rgba(146, 21, 246, 0.5)',  // Purple
-                'rgba(22, 226, 135, 0.5)'   // Green
-            ];
-            
-            particle.style.background = colors[randomInt(0, colors.length - 1)];
-            particle.style.borderRadius = '50%';
-            particle.style.top = `${randomInt(0, 100)}%`;
-            particle.style.left = `${randomInt(0, 100)}%`;
-            
-            // Random animation duration
-            const duration = randomInt(3, 8);
-            particle.style.animation = `float ${duration}s ease-in-out infinite`;
-            
-            heroParticles.appendChild(particle);
-            
-            // Remove after some time to avoid too many particles
-            setTimeout(() => {
-                particle.remove();
-            }, duration * 1000);
-        };
-        
-        // Create particles at intervals
-        setInterval(createParticle, 300);
-        
-        // Add keyframes animation
-        const style = document.createElement('style');
-        style.innerHTML = `
-            @keyframes float {
-                0%, 100% { transform: translateY(0) translateX(0); }
-                50% { transform: translateY(-${randomInt(20, 40)}px) translateX(${randomInt(-20, 20)}px); }
-            }
-        `;
-        document.head.appendChild(style);
     }
 }
 
@@ -596,10 +439,7 @@ function addDashboardStyles() {
         .stat-value {
             font-size: 1rem;
             font-weight: 600;
-            background: linear-gradient(135deg, #ff6c00, #16e287);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: #ff6c00;
         }
         
         .dashboard-chart {
@@ -649,7 +489,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initConversationDemo();
     initSolutionPreviews();
     initMethodologyDiagrams();
-    initParticlesBackground();
     addDashboardStyles();
     
     // Animate graph bars when in viewport
@@ -667,7 +506,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const elementsToObserve = [
         document.querySelector('.problem-graphic'),
         document.querySelector('.solution-card'),
-        document.querySelector('.methodology-diagram'),
+        document.querySelector('.methodology-tabs'),
         document.querySelector('.steps-container')
     ];
     
@@ -675,7 +514,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (el) observer.observe(el);
     });
     
-    // Smooth scrolling for anchor links - FIXED VERSION
+    // Initialize particles background
+    initParticlesBackground();
+    
+    // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -697,3 +539,115 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// ========== Particles Background ==========
+function initParticlesBackground() {
+    const heroParticles = document.getElementById('hero-particles');
+    if (!heroParticles) return;
+    
+    // Load particles.js library if available
+    if (typeof particlesJS !== 'undefined') {
+        particlesJS('hero-particles', {
+            particles: {
+                number: {
+                    value: 40,
+                    density: {
+                        enable: true,
+                        value_area: 900
+                    }
+                },
+                color: {
+                    value: ["#ff6c00", "#00d9ff", "#9215f6", "#16e287"]
+                },
+                shape: {
+                    type: "circle",
+                    stroke: {
+                        width: 0,
+                        color: "#000000"
+                    }
+                },
+                opacity: {
+                    value: 0.3,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 0.8,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 1.5,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#333",
+                    opacity: 0.2,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 0.8,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false,
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "grab"
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: "push"
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 140,
+                        line_linked: {
+                            opacity: 0.4
+                        }
+                    },
+                    push: {
+                        particles_nb: 2
+                    }
+                }
+            },
+            retina_detect: true
+        });
+    } else {
+        // Fallback if particles.js isn't loaded
+        const createParticle = () => {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.position = 'absolute';
+            particle.style.width = `${randomInt(2, 4)}px`;
+            particle.style.height = particle.style.width;
+            
+            // Use a variety of colors
+const colors = [
+    'rgba(255, 108, 0, 0.3)',   // Orange
+    'rgba(0, 217, 255, 0.3)',   // Cyan
+    'rgba(146, 21, 246, 0.3)',  // Purple
+    'rgba(22, 226, 135, 0.3)'   // Green
+];
