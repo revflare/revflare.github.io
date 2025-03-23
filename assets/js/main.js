@@ -1,257 +1,236 @@
-/**
- * revFlare Website - Main JavaScript
- */
-
 document.addEventListener('DOMContentLoaded', function() {
-  // DOM elements
-  const menuToggle = document.getElementById('menu-toggle');
-  const navMenu = document.getElementById('nav-menu');
-  const navbar = document.querySelector('.navbar');
-  const pricingToggle = document.getElementById('pricing-toggle');
-  const pricingCards = document.querySelectorAll('.pricing-card');
-  const starterPrice = document.getElementById('starter-price');
-  const growthPrice = document.getElementById('growth-price');
-  const scalePrice = document.getElementById('scale-price');
-  const counterElements = document.querySelectorAll('.counter');
-  const tabButtons = document.querySelectorAll('.tab-btn');
-  const tabPanes = document.querySelectorAll('.tab-pane');
-  const chatDemoContainer = document.getElementById('chat-demo-container');
-  const responseCounter = document.getElementById('response-counter');
-
-  // Navigation toggle
-  if (menuToggle && navMenu) {
-      menuToggle.addEventListener('click', function() {
-          menuToggle.classList.toggle('active');
-          navMenu.classList.toggle('active');
-      });
-  }
-
-  // Navbar scroll effect
-  window.addEventListener('scroll', function() {
-      if (window.scrollY > 50) {
-          navbar.classList.add('scrolled');
-      } else {
-          navbar.classList.remove('scrolled');
-      }
-  });
-
-  // Smooth scrolling for navigation links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-          e.preventDefault();
-          
-          if (navMenu && navMenu.classList.contains('active')) {
-              menuToggle.classList.remove('active');
-              navMenu.classList.remove('active');
-          }
-
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-              target.scrollIntoView({
-                  behavior: 'smooth',
-                  block: 'start'
-              });
-          }
-      });
-  });
-
-  // Pricing toggle
-  if (pricingToggle) {
-      pricingToggle.addEventListener('change', function() {
-          const isFullPackage = this.checked;
-          
-          pricingCards.forEach(card => {
-              if (isFullPackage) {
-                  card.classList.add('full-package');
-              } else {
-                  card.classList.remove('full-package');
-              }
-          });
-          
-          if (starterPrice && growthPrice && scalePrice) {
-              // Update pricing based on toggle state
-              if (isFullPackage) {
-                  starterPrice.innerHTML = '<span class="currency">$</span><span class="amount">399</span><span class="period">/mo</span>';
-                  growthPrice.innerHTML = '<span class="currency">$</span><span class="amount">699</span><span class="period">/mo</span>';
-                  scalePrice.innerHTML = '<span class="currency">$</span><span class="amount">1199</span><span class="period">/mo</span>';
-              } else {
-                  starterPrice.innerHTML = '<span class="currency">$</span><span class="amount">299</span><span class="period">/mo</span>';
-                  growthPrice.innerHTML = '<span class="currency">$</span><span class="amount">499</span><span class="period">/mo</span>';
-                  scalePrice.innerHTML = '<span class="currency">$</span><span class="amount">899</span><span class="period">/mo</span>';
-              }
-          }
-      });
-  }
-
-  // Counter animation
-  function animateCounters() {
-      counterElements.forEach(counter => {
-          const target = parseInt(counter.getAttribute('data-target'), 10);
-          const duration = 2000; // 2 seconds
-          const steps = 50; // Number of steps
-          const stepDuration = duration / steps;
-          const increment = target / steps;
-          
-          let current = 0;
-          const timer = setInterval(() => {
-              current += increment;
-              if (current >= target) {
-                  counter.textContent = target;
-                  clearInterval(timer);
-              } else {
-                  counter.textContent = Math.round(current);
-              }
-          }, stepDuration);
-      });
-  }
-
-  // Methodology tabs
-  if (tabButtons && tabButtons.length > 0) {
-      tabButtons.forEach(button => {
-          button.addEventListener('click', () => {
-              // Remove active class from all buttons and panes
-              tabButtons.forEach(btn => btn.classList.remove('active'));
-              tabPanes.forEach(pane => pane.classList.remove('active'));
-              
-              // Add active class to current button
-              button.classList.add('active');
-              
-              // Show corresponding tab content
-              const tabId = button.getAttribute('data-tab');
-              const tabPane = document.getElementById(`${tabId}-tab`);
-              if (tabPane) {
-                  tabPane.classList.add('active');
-              }
-          });
-      });
-  }
-
-  // Methodology switch animation (for comparison tab)
-  function animateMethodologySwitch() {
-      const spinDot = document.querySelector('.spin-dot');
-      const sandlerDot = document.querySelector('.sandler-dot');
-      
-      if (spinDot && sandlerDot) {
-          setInterval(() => {
-              spinDot.classList.toggle('active');
-              sandlerDot.classList.toggle('active');
-          }, 3000);
-      }
-  }
-
-  // Chat demo animation
-  function populateChatDemo() {
-      if (!chatDemoContainer) return;
-      
-      const messages = [
-          { type: 'bot', text: 'Hi there! Thanks for your interest in our HVAC services. How can we help you today?', delay: 500 },
-          { type: 'user', text: 'My AC isn\'t cooling properly', delay: 2000 },
-          { type: 'bot', text: 'I\'m sorry to hear that. How long has it been since your AC stopped cooling effectively?', delay: 2500 },
-          { type: 'user', text: 'A couple of days now', delay: 4000 },
-          { type: 'bot', text: 'Have you noticed any unusual sounds or smells coming from the unit?', delay: 4500 },
-          { type: 'user', text: 'Yes, there\'s a buzzing sound sometimes', delay: 6000 },
-          { type: 'bot', text: 'That could indicate an electrical issue or a problem with the fan. What\'s your budget range for the repair?', delay: 6500 },
-          { type: 'user', text: 'I\'d prefer not to spend more than $500 if possible', delay: 8000 },
-          { type: 'bot', text: 'Understood. We can have a technician come assess the situation. When would be a good time for you?', delay: 8500 }
-      ];
-
-      chatDemoContainer.innerHTML = '';
-      
-      messages.forEach((msg, index) => {
-          setTimeout(() => {
-              const messageDiv = document.createElement('div');
-              messageDiv.classList.add('message');
-              messageDiv.classList.add(msg.type === 'bot' ? 'message-bot' : 'message-user');
-              messageDiv.textContent = msg.text;
-              chatDemoContainer.appendChild(messageDiv);
-              
-              // Auto-scroll to latest message
-              chatDemoContainer.scrollTop = chatDemoContainer.scrollHeight;
-          }, msg.delay);
-      });
-      
-      // Reset after all messages have been shown
-      setTimeout(() => {
-          populateChatDemo();
-      }, 12000);
-  }
-
-  // Response time counter animation
-  function animateResponseCounter() {
-      if (!responseCounter) return;
-      
-      const values = [0.3, 0.4, 0.2, 0.5, 0.3, 0.4];
-      let index = 0;
-      
-      setInterval(() => {
-          responseCounter.textContent = values[index];
-          index = (index + 1) % values.length;
-      }, 3000);
-  }
-
-  // Intersection Observer for animations
-  const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px'
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-          if (entry.isIntersecting) {
-              if (entry.target.classList.contains('stats-grid')) {
-                  animateCounters();
-              }
-              
-              if (entry.target.classList.contains('methodology-comparison')) {
-                  animateMethodologySwitch();
-              }
-              
-              entry.target.classList.add('animate');
-              observer.unobserve(entry.target);
-          }
-      });
-  }, observerOptions);
-
-  document.querySelectorAll('.stats-grid, .methodology-comparison, .step-item, .solution-card, .advantage-card').forEach(element => {
-      observer.observe(element);
-  });
-
-  // Handle form submission
-  const betaForm = document.getElementById('beta-form');
-  if (betaForm) {
-      betaForm.addEventListener('submit', function(e) {
-          // You can add validation here if needed
-          // This is handled by FormSubmit.co already
-      });
-  }
-
-  // Initialize animations
-  populateChatDemo();
-  animateResponseCounter();
-
-  // Qualification meter animation
-  const meterFill = document.querySelector('.meter-fill');
-  if (meterFill) {
-      let width = 0;
-      const maxWidth = 65; // Maximum width percentage
-      
-      const animateMeter = () => {
-          if (width < maxWidth) {
-              width += 1;
-              meterFill.style.width = width + '%';
-              setTimeout(animateMeter, 50);
-          }
-      };
-      
-      const meterObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                  animateMeter();
-                  meterObserver.unobserve(entry.target);
-              }
-          });
-      }, observerOptions);
-      
-      meterObserver.observe(document.querySelector('.qualification-meter'));
-  }
+    // Navigation toggle for mobile
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    
+    if (navToggle) {
+        navToggle.addEventListener('click', function() {
+            navToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+    }
+    
+    // Close mobile menu when clicking a link
+    const mobileLinks = document.querySelectorAll('.nav-links a');
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+    });
+    
+    // Header scroll effect
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+    
+    // Initialize tab functionality
+    initTabs();
+    
+    // Initialize methodology visualizations
+    initMethodologyVisualizations();
+    
+    // Animate elements when they come into view
+    initScrollAnimations();
+    
+    // Initialize particle effects
+    initParticles();
 });
+
+// Tab functionality
+function initTabs() {
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all buttons and panels
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+            
+            // Add active class to clicked button
+            btn.classList.add('active');
+            
+            // Show corresponding panel
+            const tabId = btn.getAttribute('data-tab');
+            const panel = document.getElementById(`${tabId}-panel`);
+            if (panel) {
+                panel.classList.add('active');
+            }
+        });
+    });
+}
+
+// SPIN Methodology Visualization Interaction
+function initMethodologyVisualizations() {
+    // SPIN Nodes interaction
+    const spinNodes = document.querySelectorAll('.spin-node');
+    const spinStages = document.querySelectorAll('.spin-stage');
+    
+    if (spinNodes.length > 0 && spinStages.length > 0) {
+        spinNodes.forEach(node => {
+            node.addEventListener('mouseenter', () => {
+                const stage = node.getAttribute('data-stage');
+                
+                // Highlight corresponding stage
+                spinStages.forEach(s => {
+                    if (s.getAttribute('data-stage') === stage) {
+                        s.style.opacity = '1';
+                        s.style.transform = 'translateY(-5px)';
+                    } else {
+                        s.style.opacity = '0.5';
+                        s.style.transform = 'none';
+                    }
+                });
+            });
+            
+            node.addEventListener('mouseleave', () => {
+                // Reset all stages
+                spinStages.forEach(s => {
+                    s.style.opacity = '';
+                    s.style.transform = '';
+                });
+            });
+        });
+    }
+    
+    // Sandler levels interaction
+    const sandlerLevels = document.querySelectorAll('.sandler-level');
+    const sandlerStages = document.querySelectorAll('.sandler-stage');
+    const activeLevel = document.getElementById('activeLevel');
+    
+    if (sandlerLevels.length > 0 && sandlerStages.length > 0 && activeLevel) {
+        sandlerLevels.forEach(level => {
+            level.addEventListener('mouseenter', () => {
+                const levelName = level.getAttribute('data-level');
+                
+                // Move active indicator
+                if (activeLevel) {
+                    activeLevel.setAttribute('x', level.getAttribute('x'));
+                    activeLevel.setAttribute('y', level.getAttribute('y'));
+                    activeLevel.setAttribute('width', level.getAttribute('width'));
+                    activeLevel.setAttribute('height', level.getAttribute('height'));
+                }
+                
+                // Highlight corresponding stage
+                sandlerStages.forEach(s => {
+                    if (s.getAttribute('data-level') === levelName) {
+                        s.classList.add('active');
+                    } else {
+                        s.classList.remove('active');
+                    }
+                });
+            });
+        });
+    }
+}
+
+// Scroll animations
+function initScrollAnimations() {
+    // Animate meter fill on scroll
+    const animateOnScroll = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+                observer.unobserve(entry.target);
+            }
+        });
+    };
+    
+    const scrollObserver = new IntersectionObserver(animateOnScroll, {
+        root: null,
+        threshold: 0.1
+    });
+    
+    // Observe elements to animate
+    document.querySelectorAll('.meter-fill, .bar-fill, .stat-card, .step, .workflow-node').forEach(el => {
+        scrollObserver.observe(el);
+    });
+}
+
+// Initialize particle effects
+function initParticles() {
+    const particlesContainer = document.querySelector('.particles');
+    if (!particlesContainer) return;
+    
+    // Function to create particles
+    function createParticles() {
+        const particlesCount = 30;
+        
+        for (let i = 0; i < particlesCount; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            
+            // Random position
+            const posX = Math.random() * 100;
+            const posY = Math.random() * 100;
+            
+            // Random size
+            const size = Math.random() * 6 + 1;
+            
+            // Random color from brand colors
+            const colors = ['#ff6c00', '#ffb800', '#9215f6'];
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            
+            // Random opacity
+            const opacity = Math.random() * 0.5 + 0.1;
+            
+            // Apply styles
+            particle.style.left = `${posX}%`;
+            particle.style.top = `${posY}%`;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.backgroundColor = color;
+            particle.style.opacity = opacity;
+            
+            // Animation
+            const animDuration = Math.random() * 15 + 10;
+            particle.style.animation = `float ${animDuration}s infinite linear`;
+            
+            particlesContainer.appendChild(particle);
+        }
+    }
+    
+    createParticles();
+}
+
+// Typing animation for the SMS conversation
+function animateTyping() {
+    const messages = document.querySelectorAll('.sms-messages .message:not(.typing)');
+    const typingIndicator = document.querySelector('.typing-indicator');
+    
+    if (messages.length === 0 || !typingIndicator) return;
+    
+    // Hide all messages initially
+    messages.forEach(msg => {
+        msg.style.opacity = '0';
+        msg.style.transform = 'translateY(10px)';
+    });
+    
+    // Show messages one by one
+    let index = 0;
+    const showNextMessage = () => {
+        if (index < messages.length) {
+            const msg = messages[index];
+            msg.style.transition = 'opacity 0.3s, transform 0.3s';
+            msg.style.opacity = '1';
+            msg.style.transform = 'translateY(0)';
+            
+            index++;
+            setTimeout(showNextMessage, 1000);
+        } else {
+            // Show typing indicator at the end
+            typingIndicator.style.display = 'flex';
+        }
+    };
+    
+    // Start the animation
+    setTimeout(showNextMessage, 500);
+}
+
+// Call the typing animation when the page loads
+window.addEventListener('load', animateTyping);
