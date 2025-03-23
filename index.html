@@ -3,436 +3,325 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="revFlare - AI-powered lead engagement platform with instant SMS response and database reactivation">
-    <title>revFlare | Never Miss a Lead With Instant SMS Response</title>
+    <title>revFlare | AI-Powered Lead Engagement Platform</title>
+    <meta name="description" content="Never miss a lead with revFlare's instant SMS response. AI-powered lead engagement using SPIN/Sandler methodologies.">
+    
+    <!-- Favicon -->
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
+    <!-- Header Section -->
+    <header class="header">
         <div class="container">
-            <nav>
+            <div class="header-content">
                 <div class="logo">
-                    <a href="#"><img src="assets/images/revFlare-logo.png" alt="revFlare Logo"></a>
+                    <a href="#"><img src="assets/images/revflare-logo.png" alt="revFlare Logo"></a>
                 </div>
-                <div class="nav-toggle" id="navToggle">
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="#problem">Problem</a></li>
+                        <li><a href="#solutions">Solutions</a></li>
+                        <li><a href="#methodology">Methodology</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#beta">Beta Program</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu-toggle">
                     <span></span>
                     <span></span>
                     <span></span>
                 </div>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#problem">The Problem</a></li>
-                    <li><a href="#solutions">Solutions</a></li>
-                    <li><a href="#how-it-works">How It Works</a></li>
-                    <li><a href="#why-different">Why revFlare</a></li>
-                    <li><a href="#beta">Beta Program</a></li>
-                    <li><a href="#signup" class="btn-primary">Join Beta</a></li>
-                </ul>
-            </nav>
+                <div class="cta-button-header">
+                    <a href="#beta-form" class="btn btn-primary">Join Beta</a>
+                </div>
+            </div>
         </div>
     </header>
 
-    <section id="hero" class="hero">
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Never Miss a Lead With <span class="gradient-text">Instant SMS Response</span></h1>
-                <p>revFlare uses AI to instantly engage new leads and reactivate dormant ones via SMS, applying proven sales methodologies to qualify and convert more business.</p>
-                <div class="cta-buttons">
-                    <a href="#signup" class="btn-primary">Join Beta Program <i class="fas fa-arrow-right"></i></a>
-                    <a href="#solutions" class="btn-secondary">Explore Solutions</a>
+                <div class="hero-text">
+                    <h1>Never Miss a Lead With Instant SMS Response</h1>
+                    <p>revFlare's AI instantly engages new leads via SMS using proven sales methodologies, reviving your dormant leads and maximizing conversions.</p>
+                    <div class="hero-cta">
+                        <a href="#beta-form" class="btn btn-primary">Join Beta Program</a>
+                        <a href="#how-it-works" class="btn btn-secondary">How It Works</a>
+                    </div>
+                </div>
+                <div class="hero-demo">
+                    <div class="conversation-demo" id="conversation-demo">
+                        <!-- JS will populate this -->
+                    </div>
                 </div>
             </div>
-            <div class="hero-animation">
-                <div class="sms-container">
-                    <div class="sms-header">
-                        <div class="contact-info">
-                            <span class="contact-name">Jessica</span>
-                            <span class="response-time">Response time: <span class="highlight">28 seconds</span></span>
-                        </div>
-                    </div>
-                    <div class="sms-messages">
-                        <div class="message incoming">
-                            <p>Hi, I'm interested in getting a new roof estimate. Do you service the Oakland Hills area?</p>
-                            <span class="time">10:42 AM</span>
-                        </div>
-                        <div class="message outgoing">
-                            <p>Hi there! This is Mike from Oakland Roofing. We absolutely service the Oakland Hills area! We have several crews working there this week. Could I ask what prompted you to look into a new roof at this time?</p>
-                            <span class="time">10:43 AM</span>
-                        </div>
-                        <div class="message incoming">
-                            <p>We had some leaking during the last storm. Trying to get it fixed before winter hits.</p>
-                            <span class="time">10:45 AM</span>
-                        </div>
-                        <div class="message outgoing">
-                            <p>I understand completely - those leaks can cause a lot of damage if not addressed quickly. How urgent is this for you? We might be able to get someone out for an inspection this week.</p>
-                            <span class="time">10:46 AM</span>
-                        </div>
-                        <div class="message incoming typing">
-                            <div class="typing-indicator">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sms-qualification">
-                        <div class="qualification-stage">
-                            <span>Current Stage: <strong>Problem Identification</strong></span>
-                            <div class="methodology-indicator">
-                                <span class="badge">SPIN</span>
-                            </div>
-                        </div>
-                        <div class="qualification-meter">
-                            <div class="meter-label">
-                                <span>Lead Qualification</span>
-                                <span>68%</span>
-                            </div>
-                            <div class="meter">
-                                <div class="meter-fill" style="width: 68%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="particles-container">
-                    <div class="particles"></div>
-                </div>
-            </div>
+            <div class="hero-particles" id="hero-particles"></div>
         </div>
     </section>
 
-    <section id="problem" class="problem">
+    <!-- Problem Section -->
+    <section class="problem" id="problem">
         <div class="container">
             <div class="section-header">
-                <h2>The <span class="gradient-text">Speed-to-Lead</span> Problem</h2>
-                <p>Every minute that passes without engaging a new lead dramatically reduces your chances of conversion.</p>
+                <h2>The Speed-to-Lead Problem</h2>
+                <p>Every minute counts when a new lead comes in.</p>
             </div>
-            <div class="stats-container">
+            <div class="problem-stats">
                 <div class="stat-card">
                     <div class="stat-icon"><i class="fas fa-bolt"></i></div>
-                    <div class="stat-number">78<span>%</span></div>
-                    <div class="stat-text">Higher conversion rate when responding within 5 minutes</div>
+                    <div class="stat-number">78%</div>
+                    <div class="stat-text">of buyers choose the first business to respond</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon"><i class="fas fa-hourglass-half"></i></div>
-                    <div class="stat-number">10<span>×</span></div>
-                    <div class="stat-text">Drop in lead qualification rate after 5 minutes</div>
+                    <div class="stat-number">5 min</div>
+                    <div class="stat-text">is the average business response time</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-icon"><i class="fas fa-database"></i></div>
-                    <div class="stat-number">62<span>%</span></div>
-                    <div class="stat-text">Of your database contains dormant leads with potential value</div>
+                    <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="stat-number">10x</div>
+                    <div class="stat-text">decrease in lead qualification after 5 minutes</div>
                 </div>
             </div>
-            <div class="problem-explanation">
-                <div class="explanation-content">
-                    <h3>Most businesses simply can't respond fast enough</h3>
-                    <ul class="check-list">
-                        <li>Your team is busy with current clients</li>
-                        <li>Leads come in after hours and on weekends</li>
-                        <li>Manual follow-up is inconsistent</li>
-                        <li>No structured qualification process</li>
-                        <li>Dormant leads are rarely re-engaged properly</li>
-                    </ul>
-                </div>
-                <div class="graph-container">
-                    <div class="graph">
-                        <div class="graph-label-y">Conversion Rate (%)</div>
-                        <div class="graph-bars">
-                            <div class="graph-bar">
-                                <div class="bar-fill" style="height: 90%"></div>
-                                <div class="bar-label">5 min</div>
-                                <div class="bar-value">27%</div>
-                            </div>
-                            <div class="graph-bar">
-                                <div class="bar-fill" style="height: 60%"></div>
-                                <div class="bar-label">30 min</div>
-                                <div class="bar-value">16%</div>
-                            </div>
-                            <div class="graph-bar">
-                                <div class="bar-fill" style="height: 33%"></div>
-                                <div class="bar-label">1 hour</div>
-                                <div class="bar-value">9%</div>
-                            </div>
-                            <div class="graph-bar">
-                                <div class="bar-fill" style="height: 20%"></div>
-                                <div class="bar-label">2 hours</div>
-                                <div class="bar-value">5%</div>
-                            </div>
-                            <div class="graph-bar">
-                                <div class="bar-fill" style="height: 10%"></div>
-                                <div class="bar-label">1 day</div>
-                                <div class="bar-value">2.5%</div>
-                            </div>
+            <div class="problem-graphic">
+                <div class="response-time-graph">
+                    <div class="graph-data">
+                        <div class="graph-bar" data-value="100">
+                            <div class="bar-fill"></div>
+                            <div class="bar-label">< 1 min</div>
+                            <div class="value-label">100%</div>
                         </div>
-                        <div class="graph-label-x">Response Time</div>
+                        <div class="graph-bar" data-value="80">
+                            <div class="bar-fill"></div>
+                            <div class="bar-label">5 min</div>
+                            <div class="value-label">80%</div>
+                        </div>
+                        <div class="graph-bar" data-value="35">
+                            <div class="bar-fill"></div>
+                            <div class="bar-label">10 min</div>
+                            <div class="value-label">35%</div>
+                        </div>
+                        <div class="graph-bar" data-value="20">
+                            <div class="bar-fill"></div>
+                            <div class="bar-label">15 min</div>
+                            <div class="value-label">20%</div>
+                        </div>
+                        <div class="graph-bar" data-value="10">
+                            <div class="bar-fill"></div>
+                            <div class="bar-label">30 min</div>
+                            <div class="value-label">10%</div>
+                        </div>
                     </div>
+                    <div class="graph-label">Lead Qualification Rate by Response Time</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="methodologies" class="methodologies">
+    <!-- Solutions Section -->
+    <section class="solutions" id="solutions">
         <div class="container">
             <div class="section-header">
-                <h2>Powered by Proven <span class="gradient-text">Sales Methodologies</span></h2>
-                <p>revFlare uses AI that seamlessly switches between SPIN and Sandler techniques to qualify leads based on their responses.</p>
+                <h2>Two Powerful Solutions</h2>
+                <p>Engage new leads instantly and reactivate your existing database.</p>
             </div>
-            <div class="methodology-tabs">
-                <div class="tab-headers">
-                    <button class="tab-btn active" data-tab="spin">SPIN Selling</button>
-                    <button class="tab-btn" data-tab="sandler">Sandler Method</button>
-                </div>
-                <div class="tab-content">
-                    <div class="tab-panel active" id="spin-panel">
-                        <div class="methodology-visual spin-visual">
-                            <div class="visual-container">
-                                <svg class="spin-diagram" viewBox="0 0 500 500" width="100%" height="100%">
-                                    <defs>
-                                        <linearGradient id="spinGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-                                            <stop offset="0%" stop-color="#9215f6" />
-                                            <stop offset="100%" stop-color="#ff6c00" />
-                                        </linearGradient>
-                                        <linearGradient id="spinGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-                                            <stop offset="0%" stop-color="#ff6c00" />
-                                            <stop offset="100%" stop-color="#ffb800" />
-                                        </linearGradient>
-                                        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-                                            <feGaussianBlur stdDeviation="5" result="blur" />
-                                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                                        </filter>
-                                    </defs>
-                                    <circle cx="250" cy="250" r="200" fill="none" stroke="#2a2c3b" stroke-width="40" />
-                                    <path id="spinS" d="M250,50 A200,200 0 0,1 379,121" fill="none" stroke="url(#spinGradient1)" stroke-width="40" stroke-linecap="round" class="spin-path" />
-                                    <path id="spinP" d="M379,121 A200,200 0 0,1 379,379" fill="none" stroke="url(#spinGradient1)" stroke-width="40" stroke-linecap="round" class="spin-path" />
-                                    <path id="spinI" d="M379,379 A200,200 0 0,1 250,450" fill="none" stroke="url(#spinGradient2)" stroke-width="40" stroke-linecap="round" class="spin-path" />
-                                    <path id="spinN" d="M250,450 A200,200 0 0,1 121,379" fill="none" stroke="url(#spinGradient2)" stroke-width="40" stroke-linecap="round" class="spin-path" />
-                                    <circle cx="250" cy="50" r="25" fill="#9215f6" filter="url(#glow)" class="spin-node" data-stage="situation" />
-                                    <circle cx="379" cy="121" r="25" fill="#b026f5" filter="url(#glow)" class="spin-node" data-stage="problem" />
-                                    <circle cx="379" cy="379" r="25" fill="#ff6c00" filter="url(#glow)" class="spin-node" data-stage="implication" />
-                                    <circle cx="250" cy="450" r="25" fill="#ffb800" filter="url(#glow)" class="spin-node" data-stage="need" />
-                                    <text x="250" y="240" text-anchor="middle" fill="#ffffff" font-size="40" font-weight="bold">SPIN</text>
-                                </svg>
-                                <div class="spin-stages">
-                                    <div class="spin-stage" data-stage="situation">
-                                        <h4><span class="letter">S</span>ituation</h4>
-                                        <p>Gather background information about the lead's current situation</p>
-                                        <div class="example">
-                                            <p class="question">"What prompted you to look into roofing services today?"</p>
-                                        </div>
-                                    </div>
-                                    <div class="spin-stage" data-stage="problem">
-                                        <h4><span class="letter">P</span>roblem</h4>
-                                        <p>Identify specific issues the lead is experiencing</p>
-                                        <div class="example">
-                                            <p class="question">"Have you noticed any leaks or damage to your current roof?"</p>
-                                        </div>
-                                    </div>
-                                    <div class="spin-stage" data-stage="implication">
-                                        <h4><span class="letter">I</span>mplication</h4>
-                                        <p>Explore the consequences of not solving their problem</p>
-                                        <div class="example">
-                                            <p class="question">"How has this issue affected your home or business operations?"</p>
-                                        </div>
-                                    </div>
-                                    <div class="spin-stage" data-stage="need">
-                                        <h4><span class="letter">N</span>eed-Payoff</h4>
-                                        <p>Establish the value of solving their problem</p>
-                                        <div class="example">
-                                            <p class="question">"How valuable would it be to have this fixed before the rainy season?"</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-panel" id="sandler-panel">
-                        <div class="methodology-visual sandler-visual">
-                            <div class="visual-container">
-                                <svg class="sandler-diagram" viewBox="0 0 500 500" width="100%" height="100%">
-                                    <defs>
-                                        <linearGradient id="sandlerGradient" x1="0%" y1="100%" x2="0%" y2="0%">
-                                            <stop offset="0%" stop-color="#9215f6" />
-                                            <stop offset="50%" stop-color="#ff6c00" />
-                                            <stop offset="100%" stop-color="#ffb800" />
-                                        </linearGradient>
-                                        <filter id="sandlerGlow" x="-20%" y="-20%" width="140%" height="140%">
-                                            <feGaussianBlur stdDeviation="5" result="blur" />
-                                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                                        </filter>
-                                    </defs>
-                                    <!-- Sandler Pyramid -->
-                                    <polygon points="250,50 450,450 50,450" fill="none" stroke="#2a2c3b" stroke-width="2" />
-                                    <!-- Pyramid Levels -->
-                                    <rect x="90" y="390" width="320" height="60" fill="#2a2c3b" class="sandler-level" data-level="close" />
-                                    <rect x="110" y="330" width="280" height="60" fill="#2a2c3b" class="sandler-level" data-level="fulfillment" />
-                                    <rect x="130" y="270" width="240" height="60" fill="#2a2c3b" class="sandler-level" data-level="decision" />
-                                    <rect x="150" y="210" width="200" height="60" fill="#2a2c3b" class="sandler-level" data-level="budget" />
-                                    <rect x="170" y="150" width="160" height="60" fill="#2a2c3b" class="sandler-level" data-level="pain" />
-                                    <rect x="190" y="90" width="120" height="60" fill="#2a2c3b" class="sandler-level" data-level="rapport" />
-                                    
-                                    <!-- Highlight for active level -->
-                                    <rect id="activeLevel" x="170" y="150" width="160" height="60" fill="url(#sandlerGradient)" filter="url(#sandlerGlow)" opacity="0.9" />
-                                    
-                                    <!-- Level Labels -->
-                                    <text x="250" y="125" text-anchor="middle" fill="#ffffff" font-size="16">Rapport</text>
-                                    <text x="250" y="185" text-anchor="middle" fill="#ffffff" font-size="16">Pain</text>
-                                    <text x="250" y="245" text-anchor="middle" fill="#ffffff" font-size="16">Budget</text>
-                                    <text x="250" y="305" text-anchor="middle" fill="#ffffff" font-size="16">Decision</text>
-                                    <text x="250" y="365" text-anchor="middle" fill="#ffffff" font-size="16">Fulfillment</text>
-                                    <text x="250" y="425" text-anchor="middle" fill="#ffffff" font-size="16">Close</text>
-                                </svg>
-                                <div class="sandler-stages">
-                                    <div class="sandler-stage" data-level="rapport">
-                                        <h4>Rapport</h4>
-                                        <p>Build trust and establish a relationship</p>
-                                        <div class="example">
-                                            <p class="question">"I see you're in the Oakland area. We've completed several projects there recently."</p>
-                                        </div>
-                                    </div>
-                                    <div class="sandler-stage active" data-level="pain">
-                                        <h4>Pain</h4>
-                                        <p>Uncover the true problems that need solving</p>
-                                        <div class="example">
-                                            <p class="question">"What issues have you been experiencing with your current system?"</p>
-                                        </div>
-                                    </div>
-                                    <div class="sandler-stage" data-level="budget">
-                                        <h4>Budget</h4>
-                                        <p>Discuss financial expectations and constraints</p>
-                                        <div class="example">
-                                            <p class="question">"Have you set aside a budget for this project?"</p>
-                                        </div>
-                                    </div>
-                                    <div class="sandler-stage" data-level="decision">
-                                        <h4>Decision</h4>
-                                        <p>Identify the decision-making process</p>
-                                        <div class="example">
-                                            <p class="question">"Who else would be involved in making the final decision?"</p>
-                                        </div>
-                                    </div>
-                                    <div class="sandler-stage" data-level="fulfillment">
-                                        <h4>Fulfillment</h4>
-                                        <p>Determine expectations for solution delivery</p>
-                                        <div class="example">
-                                            <p class="question">"What timeline are you working with for this project?"</p>
-                                        </div>
-                                    </div>
-                                    <div class="sandler-stage" data-level="close">
-                                        <h4>Close</h4>
-                                        <p>Secure commitment and next steps</p>
-                                        <div class="example">
-                                            <p class="question">"Would you like to schedule an in-person assessment this week?"</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="methodology-benefits">
-                <div class="benefit-card">
-                    <div class="benefit-icon"><i class="fas fa-sync-alt"></i></div>
-                    <h4>Adaptive Approach</h4>
-                    <p>revFlare seamlessly switches between methodologies based on lead responses</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon"><i class="fas fa-industry"></i></div>
-                    <h4>Industry-Specific</h4>
-                    <p>Customized conversation flows for your specific industry</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
-                    <h4>Continuous Improvement</h4>
-                    <p>System learns from successful interactions to improve conversion rates</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="solutions" class="solutions">
-        <div class="container">
-            <div class="section-header">
-                <h2>Two Powerful <span class="gradient-text">AI Solutions</span> in One Platform</h2>
-                <p>Never miss a lead and revive your dormant database with our comprehensive approach.</p>
-            </div>
-            <div class="solutions-container">
+            <div class="solutions-content">
                 <div class="solution-card">
                     <div class="solution-icon">
                         <i class="fas fa-bolt"></i>
                     </div>
-                    <h3>Speed-to-Lead SMS</h3>
-                    <p>Instant automated SMS response that engages new leads within seconds using proven sales methodologies.</p>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> 24/7 instant response to new leads</li>
-                        <li><i class="fas fa-check"></i> Automated SPIN & Sandler qualification</li>
-                        <li><i class="fas fa-check"></i> Natural conversation flow</li>
-                        <li><i class="fas fa-check"></i> Seamless handoff to your team</li>
-                        <li><i class="fas fa-check"></i> Custom lead scoring</li>
+                    <h3>Speed-to-Lead SMS Automation</h3>
+                    <p>Our AI instantly engages new leads via SMS using SPIN/Sandler methodologies, ensuring you never miss a sales opportunity.</p>
+                    <ul class="solution-features">
+                        <li><i class="fas fa-check"></i> Instant lead response in seconds</li>
+                        <li><i class="fas fa-check"></i> AI-driven qualification using proven sales methodologies</li>
+                        <li><i class="fas fa-check"></i> Natural conversation that builds rapport</li>
+                        <li><i class="fas fa-check"></i> Seamless integration with your existing systems</li>
                     </ul>
-                    <div class="integration-methods">
-                        <h4>Integration Methods</h4>
-                        <div class="integration-icons">
-                            <div class="integration-icon" data-tooltip="Web Form Integration">
-                                <i class="fas fa-globe"></i>
-                            </div>
-                            <div class="integration-icon" data-tooltip="Missed Call Detection">
-                                <i class="fas fa-phone-slash"></i>
-                            </div>
-                            <div class="integration-icon" data-tooltip="Twilio SMS Integration">
-                                <i class="fas fa-comment-dots"></i>
-                            </div>
-                            <div class="integration-icon" data-tooltip="CRM Integration (Coming Soon)">
-                                <i class="fas fa-database"></i>
+                    <div class="solution-preview">
+                        <div class="speed-lead-preview">
+                            <div class="sms-conversation">
+                                <!-- Will be populated by JS -->
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="solution-card">
                     <div class="solution-icon">
-                        <i class="fas fa-heartbeat"></i>
+                        <i class="fas fa-sync-alt"></i>
                     </div>
                     <h3>Database Reactivation</h3>
-                    <p>Revive dormant leads with intelligent re-engagement campaigns that identify buying signals and sales opportunities.</p>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> Segment dormant leads intelligently</li>
-                        <li><i class="fas fa-check"></i> Strategic timing for re-engagement</li>
-                        <li><i class="fas fa-check"></i> Personalized outreach campaigns</li>
-                        <li><i class="fas fa-check"></i> A/B testing of methodologies</li>
-                        <li><i class="fas fa-check"></i> Re-qualification and lead scoring</li>
+                    <p>Revive dormant leads with automated campaigns that re-engage prospects using AI-powered conversations.</p>
+                    <ul class="solution-features">
+                        <li><i class="fas fa-check"></i> Automated campaigns to dormant leads</li>
+                        <li><i class="fas fa-check"></i> Personalized outreach at scale</li>
+                        <li><i class="fas fa-check"></i> Strategic follow-up sequences</li>
+                        <li><i class="fas fa-check"></i> Performance tracking and optimization</li>
                     </ul>
-                    <div class="dashboard-preview">
-                        <h4>Campaign Dashboard</h4>
-                        <div class="dashboard-mockup">
-                            <div class="mockup-header">
-                                <div class="mockup-title">Reactivation Campaign</div>
-                                <div class="mockup-controls">
-                                    <span class="control"></span>
-                                    <span class="control"></span>
-                                    <span class="control"></span>
+                    <div class="solution-preview">
+                        <div class="reactivation-dashboard">
+                            <!-- Will be populated by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology Section -->
+    <section class="methodology" id="methodology">
+        <div class="container">
+            <div class="section-header">
+                <h2>Dual Sales Methodology</h2>
+                <p>Our AI adapts between proven sales frameworks based on your prospect's responses.</p>
+            </div>
+            <div class="methodology-tabs">
+                <div class="tab-controls">
+                    <button class="tab-btn active" data-target="spin">SPIN Methodology</button>
+                    <button class="tab-btn" data-target="sandler">Sandler Methodology</button>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="spin-content">
+                        <div class="methodology-diagram" id="spin-diagram">
+                            <!-- Will be rendered with JS -->
+                        </div>
+                        <div class="methodology-description">
+                            <h3>SPIN Methodology</h3>
+                            <p>SPIN selling focuses on uncovering customer needs through strategic questioning.</p>
+                            <div class="methodology-steps">
+                                <div class="method-step">
+                                    <div class="step-letter">S</div>
+                                    <div class="step-content">
+                                        <h4>Situation</h4>
+                                        <p>Understanding the prospect's current situation and context.</p>
+                                        <div class="example-message">
+                                            <span class="message-label">Example:</span>
+                                            <span class="message-text">"How many leads do you typically receive per day?"</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="method-step">
+                                    <div class="step-letter">P</div>
+                                    <div class="step-content">
+                                        <h4>Problem</h4>
+                                        <p>Identifying specific challenges the prospect is facing.</p>
+                                        <div class="example-message">
+                                            <span class="message-label">Example:</span>
+                                            <span class="message-text">"What happens when your team can't respond to leads quickly?"</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="method-step">
+                                    <div class="step-letter">I</div>
+                                    <div class="step-content">
+                                        <h4>Implication</h4>
+                                        <p>Exploring the consequences of not solving the problem.</p>
+                                        <div class="example-message">
+                                            <span class="message-label">Example:</span>
+                                            <span class="message-text">"How much revenue do you estimate you're losing from missed leads?"</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="method-step">
+                                    <div class="step-letter">N</div>
+                                    <div class="step-content">
+                                        <h4>Need-Payoff</h4>
+                                        <p>Linking solutions to specific benefits that address the prospect's needs.</p>
+                                        <div class="example-message">
+                                            <span class="message-label">Example:</span>
+                                            <span class="message-text">"How valuable would it be to respond to every lead within seconds?"</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="mockup-stats">
-                                <div class="stat">
-                                    <div class="stat-value">168</div>
-                                    <div class="stat-label">Leads Contacted</div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="sandler-content">
+                        <div class="methodology-diagram" id="sandler-diagram">
+                            <!-- Will be rendered with JS -->
+                        </div>
+                        <div class="methodology-description">
+                            <h3>Sandler Methodology</h3>
+                            <p>The Sandler Selling System establishes trust and qualifies prospects through a structured approach.</p>
+                            <div class="methodology-steps">
+                                <div class="method-step">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h4>Rapport</h4>
+                                        <p>Building a relationship with the prospect.</p>
+                                        <div class="example-message">
+                                            <span class="message-label">Example:</span>
+                                            <span class="message-text">"Thanks for your interest in our roofing services. Is this about a residential or commercial project?"</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="stat">
-                                    <div class="stat-value">42%</div>
-                                    <div class="stat-label">Response Rate</div>
+                                <div class="method-step">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h4>Pain</h4>
+                                        <p>Uncovering the prospect's pain points and challenges.</p>
+                                        <div class="example-message">
+                                            <span class="message-label">Example:</span>
+                                            <span class="message-text">"What specific issues are you having with your current roof?"</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="stat">
-                                    <div class="stat-value">27</div>
-                                    <div class="stat-label">Re-qualified</div>
+                                <div class="method-step">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <h4>Budget</h4>
+                                        <p>Qualifying the prospect based on financial considerations.</p>
+                                        <div class="example-message">
+                                            <span class="message-label">Example:</span>
+                                            <span class="message-text">"Have you set aside a budget for this project?"</span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="mockup-chart">
-                                <div class="chart-bar" style="height: 40%"></div>
-                                <div class="chart-bar" style="height: 60%"></div>
-                                <div class="chart-bar" style="height: 80%"></div>
-                                <div class="chart-bar" style="height: 65%"></div>
-                                <div class="chart-bar" style="height: 75%"></div>
+                                <div class="method-step">
+                                    <div class="step-number">4</div>
+                                    <div class="step-content">
+                                        <h4>Decision</h4>
+                                        <p>Understanding the decision-making process.</p>
+                                        <div class="example-message">
+                                            <span class="message-label">Example:</span>
+                                            <span class="message-text">"Besides yourself, who else will be involved in making the final decision?"</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="method-step">
+                                    <div class="step-number">5</div>
+                                    <div class="step-content">
+                                        <h4>Fulfillment</h4>
+                                        <p>Demonstrating how the solution addresses their needs.</p>
+                                        <div class="example-message">
+                                            <span class="message-label">Example:</span>
+                                            <span class="message-text">"Based on what you've shared, our premium shingles would solve your leakage issues and last 20+ years."</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="method-step">
+                                    <div class="step-number">6</div>
+                                    <div class="step-content">
+                                        <h4>Close</h4>
+                                        <p>Guiding the prospect to a commitment.</p>
+                                        <div class="example-message">
+                                            <span class="message-label">Example:</span>
+                                            <span class="message-text">"Would you like to schedule a free inspection with one of our roofing experts?"</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -441,367 +330,223 @@
         </div>
     </section>
 
-    <section id="how-it-works" class="how-it-works">
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
         <div class="container">
             <div class="section-header">
-                <h2>How <span class="gradient-text">revFlare</span> Works</h2>
-                <p>Simple to set up, powerful in execution, and seamless for your team.</p>
+                <h2>How revFlare Works</h2>
+                <p>Simple integration with powerful results.</p>
             </div>
             <div class="steps-container">
-                <div class="step">
+                <div class="step-card">
                     <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Quick Integration</h3>
-                        <p>Connect revFlare to your lead sources through web forms, phone systems, or direct integration.</p>
-                        <div class="step-icon">
-                            <i class="fas fa-plug"></i>
-                        </div>
-                    </div>
+                    <div class="step-icon"><i class="fas fa-plug"></i></div>
+                    <h3>Quick Integration</h3>
+                    <p>Connect revFlare to your lead sources in minutes. We support web forms, missed calls, and more.</p>
                 </div>
-                <div class="step">
+                <div class="step-card">
                     <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Instant Engagement</h3>
-                        <p>New leads receive immediate SMS outreach using AI that applies proven sales methodologies.</p>
-                        <div class="step-icon">
-                            <i class="fas fa-comment-dots"></i>
-                        </div>
-                    </div>
+                    <div class="step-icon"><i class="fas fa-comments"></i></div>
+                    <h3>Instant Engagement</h3>
+                    <p>When a lead comes in, our AI immediately reaches out via SMS using proven methodologies.</p>
                 </div>
-                <div class="step">
+                <div class="step-card">
                     <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Strategic Qualification</h3>
-                        <p>The AI engages in natural conversation, asking the right questions to qualify the lead.</p>
-                        <div class="step-icon">
-                            <i class="fas fa-filter"></i>
-                        </div>
-                    </div>
+                    <div class="step-icon"><i class="fas fa-user-check"></i></div>
+                    <h3>Lead Qualification</h3>
+                    <p>The AI intelligently qualifies leads through natural conversation, identifying hot prospects.</p>
                 </div>
-                <div class="step">
+                <div class="step-card">
                     <div class="step-number">4</div>
-                    <div class="step-content">
-                        <h3>Seamless Handoff</h3>
-                        <p>Qualified leads are routed to your team with full conversation context and qualification score.</p>
-                        <div class="step-icon">
-                            <i class="fas fa-exchange-alt"></i>
-                        </div>
-                    </div>
+                    <div class="step-icon"><i class="fas fa-clipboard-list"></i></div>
+                    <h3>Detailed Handoff</h3>
+                    <p>Qualified leads are handed off to your team with full conversation context and qualification details.</p>
                 </div>
             </div>
-            <div class="workflow-diagram">
-                <div class="workflow-node" id="node1">
-                    <div class="node-icon"><i class="fas fa-user"></i></div>
-                    <div class="node-label">New Lead</div>
-                </div>
-                <div class="workflow-arrow" id="arrow1">
-                    <i class="fas fa-long-arrow-alt-right"></i>
-                </div>
-                <div class="workflow-node" id="node2">
-                    <div class="node-icon"><i class="fas fa-robot"></i></div>
-                    <div class="node-label">AI Response</div>
-                </div>
-                <div class="workflow-arrow" id="arrow2">
-                    <i class="fas fa-long-arrow-alt-right"></i>
-                </div>
-                <div class="workflow-node" id="node3">
-                    <div class="node-icon"><i class="fas fa-comments"></i></div>
-                    <div class="node-label">Conversation</div>
-                </div>
-                <div class="workflow-arrow" id="arrow3">
-                    <i class="fas fa-long-arrow-alt-right"></i>
-                </div>
-                <div class="workflow-node" id="node4">
-                    <div class="node-icon"><i class="fas fa-clipboard-check"></i></div>
-                    <div class="node-label">Qualification</div>
-                </div>
-                <div class="workflow-arrow" id="arrow4">
-                    <i class="fas fa-long-arrow-alt-right"></i>
-                </div>
-                <div class="workflow-node" id="node5">
-                    <div class="node-icon"><i class="fas fa-headset"></i></div>
-                    <div class="node-label">Your Team</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="why-different" class="why-different">
-        <div class="container">
-            <div class="section-header">
-                <h2>Why <span class="gradient-text">revFlare</span> Is Different</h2>
-                <p>Not just another chatbot - a structured, methodology-driven lead qualification system.</p>
-            </div>
-            <div class="comparison-table">
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Feature</th>
-                                <th>Generic Chatbots</th>
-                                <th>revFlare</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Response Method</td>
-                                <td>Web chat widgets only</td>
-                                <td><span class="highlight">Direct SMS engagement</span></td>
-                            </tr>
-                            <tr>
-                                <td>Sales Methodology</td>
-                                <td>None / Basic scripts</td>
-                                <td><span class="highlight">SPIN & Sandler frameworks</span></td>
-                            </tr>
-                            <tr>
-                                <td>Lead Qualification</td>
-                                <td>Basic contact info collection</td>
-                                <td><span class="highlight">Structured qualification process</span></td>
-                            </tr>
-                            <tr>
-                                <td>Engagement Rate</td>
-                                <td>~20% of leads</td>
-                                <td><span class="highlight">78% of leads</span></td>
-                            </tr>
-                            <tr>
-                                <td>Response Time</td>
-                                <td>Requires website visit</td>
-                                <td><span class="highlight">Instant SMS (seconds)</span></td>
-                            </tr>
-                            <tr>
-                                <td>Database Reactivation</td>
-                                <td>Not available</td>
-                                <td><span class="highlight">Built-in campaigns</span></td>
-                            </tr>
-                            <tr>
-                                <td>Integration Options</td>
-                                <td>Website only</td>
-                                <td><span class="highlight">Web, phone, SMS, CRM</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="industry-applications">
-                <h3>Industry-Specific Solutions</h3>
-                <div class="industry-grid">
-                    <div class="industry-card">
-                        <div class="industry-icon">
-                            <i class="fas fa-home"></i>
-                        </div>
-                        <h4>Home Services</h4>
-                        <p>HVAC, Roofing, Plumbing, Electrical, Home Renovation</p>
+            <div class="integration-methods">
+                <h3>Integration Methods</h3>
+                <div class="integration-icons">
+                    <div class="integration-icon">
+                        <i class="fas fa-globe"></i>
+                        <span>Web Forms</span>
                     </div>
-                    <div class="industry-card">
-                        <div class="industry-icon">
-                            <i class="fas fa-key"></i>
-                        </div>
-                        <h4>Real Estate</h4>
-                        <p>Residential and Commercial</p>
+                    <div class="integration-icon">
+                        <i class="fas fa-phone-slash"></i>
+                        <span>Missed Calls</span>
                     </div>
-                    <div class="industry-card">
-                        <div class="industry-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h4>Finance</h4>
-                        <p>Mortgage, Insurance, Financial Advisory</p>
+                    <div class="integration-icon">
+                        <i class="fas fa-sms"></i>
+                        <span>Two-way SMS</span>
                     </div>
-                    <div class="industry-card">
-                        <div class="industry-icon">
-                            <i class="fas fa-heartbeat"></i>
-                        </div>
-                        <h4>Medical</h4>
-                        <p>Healthcare Providers, Medical Spas, Wellness Centers</p>
+                    <div class="integration-icon">
+                        <i class="fas fa-database"></i>
+                        <span>CRM Integration</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="beta" class="beta">
+    <!-- Comparison Section -->
+    <section class="comparison" id="comparison">
         <div class="container">
             <div class="section-header">
-                <h2>Join Our <span class="gradient-text">Beta Program</span></h2>
-                <p>Be among the first to leverage the power of revFlare and help shape its future.</p>
+                <h2>Why revFlare Is Different</h2>
+                <p>Not just another chatbot — a complete sales methodology AI.</p>
+            </div>
+            <div class="comparison-table-container">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Features</th>
+                            <th>Generic Chatbots</th>
+                            <th>revFlare</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Sales Methodology</td>
+                            <td><i class="fas fa-times"></i> None</td>
+                            <td><i class="fas fa-check"></i> SPIN & Sandler</td>
+                        </tr>
+                        <tr>
+                            <td>Response Time</td>
+                            <td><i class="fas fa-clock"></i> Varies</td>
+                            <td><i class="fas fa-bolt"></i> Instant</td>
+                        </tr>
+                        <tr>
+                            <td>Lead Qualification</td>
+                            <td><i class="fas fa-times"></i> Basic</td>
+                            <td><i class="fas fa-check"></i> Strategic</td>
+                        </tr>
+                        <tr>
+                            <td>Database Reactivation</td>
+                            <td><i class="fas fa-times"></i> No</td>
+                            <td><i class="fas fa-check"></i> Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Conversation Quality</td>
+                            <td><i class="fas fa-star-half-alt"></i> Script-based</td>
+                            <td><i class="fas fa-star"></i> Natural & Adaptive</td>
+                        </tr>
+                        <tr>
+                            <td>Integration Methods</td>
+                            <td><i class="fas fa-star-half-alt"></i> Limited</td>
+                            <td><i class="fas fa-star"></i> Comprehensive</td>
+                        </tr>
+                        <tr>
+                            <td>Engagement Rate</td>
+                            <td><i class="fas fa-chart-line"></i> ~20%</td>
+                            <td><i class="fas fa-chart-line"></i> ~78%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beta Program Section -->
+    <section class="beta" id="beta">
+        <div class="container">
+            <div class="section-header">
+                <h2>Join Our Beta Program</h2>
+                <p>Get early access to revolutionary lead engagement technology.</p>
             </div>
             <div class="beta-timeline">
-                <div class="timeline-container">
-                    <div class="timeline-bar"></div>
-                    <div class="timeline-phases">
-                        <div class="timeline-phase active">
-                            <div class="phase-indicator">
-                                <div class="indicator-circle">
-                                    <i class="fas fa-flask"></i>
-                                </div>
-                            </div>
-                            <div class="phase-content">
-                                <h3>Closed Beta</h3>
-                                <p class="phase-status">Current Phase</p>
-                                <ul class="phase-features">
-                                    <li>Limited to 10-15 select businesses</li>
-                                    <li>Direct support and personalized onboarding</li>
-                                    <li>High-touch feedback collection</li>
-                                    <li>Early access to all features</li>
-                                    <li><strong>Free access for 45-60 days</strong></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="timeline-phase">
-                            <div class="phase-indicator">
-                                <div class="indicator-circle">
-                                    <i class="fas fa-users"></i>
-                                </div>
-                            </div>
-                            <div class="phase-content">
-                                <h3>Limited Beta</h3>
-                                <p class="phase-status">Coming Soon</p>
-                                <ul class="phase-features">
-                                    <li>Expanded to 50 businesses</li>
-                                    <li>Industry-specific optimizations</li>
-                                    <li>A/B testing of sales methodologies</li>
-                                    <li>Community feedback forums</li>
-                                    <li><strong>Free access for 14-30 days</strong></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="timeline-phase">
-                            <div class="phase-indicator">
-                                <div class="indicator-circle">
-                                    <i class="fas fa-rocket"></i>
-                                </div>
-                            </div>
-                            <div class="phase-content">
-                                <h3>Open Beta</h3>
-                                <p class="phase-status">Future Phase</p>
-                                <ul class="phase-features">
-                                    <li>Wider access before full launch</li>
-                                    <li>Final polish and performance optimization</li>
-                                    <li>Special pricing for beta participants</li>
-                                    <li>Early adopter testimonials</li>
-                                </ul>
-                            </div>
-                        </div>
+                <div class="timeline-phase active">
+                    <div class="phase-marker">
+                        <div class="marker-circle"></div>
+                        <div class="marker-label">Current Phase</div>
+                    </div>
+                    <div class="phase-content">
+                        <h3>Closed Beta (Phase 1)</h3>
+                        <ul class="phase-features">
+                            <li><i class="fas fa-check"></i> Limited to 10-15 select businesses</li>
+                            <li><i class="fas fa-check"></i> Direct support and personalized onboarding</li>
+                            <li><i class="fas fa-check"></i> High-touch feedback collection</li>
+                            <li><i class="fas fa-check"></i> Early access to all features</li>
+                            <li><i class="fas fa-check"></i> <strong>Free access for 45-60 days</strong></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-phase">
+                    <div class="phase-marker">
+                        <div class="marker-circle"></div>
+                    </div>
+                    <div class="phase-content">
+                        <h3>Limited Beta (Phase 2)</h3>
+                        <ul class="phase-features">
+                            <li><i class="fas fa-check"></i> Expanded to 50 businesses</li>
+                            <li><i class="fas fa-check"></i> Industry-specific optimizations</li>
+                            <li><i class="fas fa-check"></i> A/B testing of sales methodologies</li>
+                            <li><i class="fas fa-check"></i> Community feedback forums</li>
+                            <li><i class="fas fa-check"></i> <strong>Free access for 14-30 days</strong></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-phase">
+                    <div class="phase-marker">
+                        <div class="marker-circle"></div>
+                    </div>
+                    <div class="phase-content">
+                        <h3>Open Beta (Phase 3)</h3>
+                        <ul class="phase-features">
+                            <li><i class="fas fa-check"></i> Wider access before full launch</li>
+                            <li><i class="fas fa-check"></i> Final polish and performance optimization</li>
+                            <li><i class="fas fa-check"></i> Special pricing for beta participants</li>
+                            <li><i class="fas fa-check"></i> Early adopter testimonials</li>
+                        </ul>
                     </div>
                 </div>
             </div>
             <div class="pricing-preview">
-                <h3>Beta Pricing Preview</h3>
-                <p>Early beta testers will receive special pricing when we launch.</p>
+                <h3>Future Pricing Sneak Peek</h3>
                 <div class="pricing-cards">
-                    <div class="pricing-card featured">
-                        <div class="card-badge">Current Focus</div>
-                        <div class="card-header">
-                            <h4>Closed Beta</h4>
-                            <div class="price">FREE</div>
-                            <div class="price-period">45-60 Day Trial</div>
-                        </div>
-                        <div class="card-features">
-                            <ul>
-                                <li><i class="fas fa-check"></i> Full access to all features</li>
-                                <li><i class="fas fa-check"></i> Personalized onboarding</li>
-                                <li><i class="fas fa-check"></i> Direct support channel</li>
-                                <li><i class="fas fa-check"></i> Influence product roadmap</li>
-                                <li><i class="fas fa-check"></i> Early adopter pricing lock-in</li>
-                            </ul>
-                        </div>
-                        <div class="card-cta">
-                            <a href="#signup" class="btn-primary">Apply Now</a>
-                        </div>
+                    <div class="pricing-card">
+                        <div class="plan-name">Starter</div>
+                        <div class="plan-price">$299<span>/month</span></div>
+                        <div class="plan-limit">500 lead interactions per month</div>
                     </div>
-                    <div class="pricing-tier-preview">
-                        <div class="tier-preview-header">
-                            <h4>Future Pricing Tiers</h4>
-                            <p>Beta participants will receive special pricing</p>
-                        </div>
-                        <div class="tier-preview-cards">
-                            <div class="tier-preview-card">
-                                <div class="tier-name">Starter</div>
-                                <div class="tier-price">$299</div>
-                                <div class="tier-limit">500 lead interactions/mo</div>
-                            </div>
-                            <div class="tier-preview-card">
-                                <div class="tier-name">Growth</div>
-                                <div class="tier-price">$499</div>
-                                <div class="tier-limit">1,000 lead interactions/mo</div>
-                            </div>
-                            <div class="tier-preview-card">
-                                <div class="tier-name">Scale</div>
-                                <div class="tier-price">$799</div>
-                                <div class="tier-limit">2,500 lead interactions/mo</div>
-                            </div>
-                        </div>
+                    <div class="pricing-card">
+                        <div class="plan-name">Growth</div>
+                        <div class="plan-price">$499<span>/month</span></div>
+                        <div class="plan-limit">1,000 lead interactions per month</div>
                     </div>
+                    <div class="pricing-card">
+                        <div class="plan-name">Scale</div>
+                        <div class="plan-price">$799<span>/month</span></div>
+                        <div class="plan-limit">2,500 lead interactions per month</div>
+                    </div>
+                    <div class="pricing-card">
+                        <div class="plan-name">Enterprise</div>
+                        <div class="plan-price">$1,299<span>/month</span></div>
+                        <div class="plan-limit">5,000+ lead interactions per month</div>
+                    </div>
+                </div>
+                <div class="beta-discount">
+                    <div class="discount-badge">Early Adopter Discount</div>
+                    <p>Beta participants will receive special pricing when we launch.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="signup" class="signup">
+    <!-- Beta Form Section -->
+    <section class="beta-form" id="beta-form">
         <div class="container">
             <div class="section-header">
-                <h2>Apply for <span class="gradient-text">Beta Access</span></h2>
-                <p>Fill out the form below to be considered for our closed beta program.</p>
+                <h2>Apply for Beta Access</h2>
+                <p>Tell us why you'd be a great beta testing partner.</p>
             </div>
-            <div class="signup-container">
-                <div class="signup-content">
-                    <h3>What Makes a Great Beta Partner?</h3>
-                    <ul class="partner-qualities">
-                        <li><i class="fas fa-check-circle"></i> Business with consistent lead flow</li>
-                        <li><i class="fas fa-check-circle"></i> Willingness to provide regular feedback</li>
-                        <li><i class="fas fa-check-circle"></i> Value quick lead response times</li>
-                        <li><i class="fas fa-check-circle"></i> Have a database of dormant leads</li>
-                        <li><i class="fas fa-check-circle"></i> Looking to improve sales conversion rates</li>
-                    </ul>
-                    <div class="beta-benefits">
-                        <h4>Beta Benefits</h4>
-                        <div class="benefits-grid">
-                            <div class="benefit">
-                                <div class="benefit-icon"><i class="fas fa-clock"></i></div>
-                                <div class="benefit-text">Free 45-60 day trial period</div>
-                            </div>
-                            <div class="benefit">
-                                <div class="benefit-icon"><i class="fas fa-headset"></i></div>
-                                <div class="benefit-text">Direct support from our team</div>
-                            </div>
-                            <div class="benefit">
-                                <div class="benefit-icon"><i class="fas fa-cogs"></i></div>
-                                <div class="benefit-text">Industry-specific customization</div>
-                            </div>
-                            <div class="benefit">
-                                <div class="benefit-icon"><i class="fas fa-tag"></i></div>
-                                <div class="benefit-text">Special pricing after beta</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="signup-form">
-                    <form action="https://formsubmit.co/revflare@gmail.com" method="POST">
-                        <input type="hidden" name="_subject" value="revFlare Beta Application">
-                        <input type="hidden" name="_next" value="thankyou.html">
-                        <input type="hidden" name="_captcha" value="false">
-                        
+            <div class="form-container">
+                <form action="https://formsubmit.co/revflare@gmail.com" method="POST" id="beta-signup-form">
+                    <div class="form-row">
                         <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Business Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="company">Company Name</label>
+                            <label for="company">Company Name*</label>
                             <input type="text" id="company" name="company" required>
                         </div>
-                        
                         <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="industry">Industry</label>
+                            <label for="industry">Industry*</label>
                             <select id="industry" name="industry" required>
                                 <option value="" disabled selected>Select your industry</option>
                                 <option value="HVAC">HVAC</option>
@@ -818,81 +563,120 @@
                                 <option value="Other">Other</option>
                             </select>
                         </div>
-                        
+                    </div>
+                    <div class="form-row">
                         <div class="form-group">
-                            <label for="monthly_leads">Approximate Monthly Leads</label>
-                            <input type="number" id="monthly_leads" name="monthly_leads">
+                            <label for="name">Your Name*</label>
+                            <input type="text" id="name" name="name" required>
                         </div>
-                        
                         <div class="form-group">
-                            <label for="database_size">Size of Lead Database</label>
-                            <input type="number" id="database_size" name="database_size">
+                            <label for="email">Email Address*</label>
+                            <input type="email" id="email" name="email" required>
                         </div>
-                        
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="website">Website</label>
+                            <input type="url" id="website" name="website">
+                        </div>
+                    </div>
+                    <div class="form-row">
                         <div class="form-group full-width">
-                            <label for="why_good_fit">Why would you be a good beta testing partner?</label>
-                            <textarea id="why_good_fit" name="why_good_fit" rows="4" required></textarea>
+                            <label for="monthly-leads">How many new leads do you receive monthly?*</label>
+                            <select id="monthly-leads" name="monthly-leads" required>
+                                <option value="" disabled selected>Select range</option>
+                                <option value="1-50">1-50</option>
+                                <option value="51-200">51-200</option>
+                                <option value="201-500">201-500</option>
+                                <option value="501-1000">501-1000</option>
+                                <option value="1000+">1000+</option>
+                            </select>
                         </div>
-                        
+                    </div>
+                    <div class="form-row">
                         <div class="form-group full-width">
-                            <button type="submit" class="btn-primary">Submit Application</button>
+                            <label for="database-size">How many leads do you have in your existing database?*</label>
+                            <select id="database-size" name="database-size" required>
+                                <option value="" disabled selected>Select range</option>
+                                <option value="1-500">1-500</option>
+                                <option value="501-2000">501-2000</option>
+                                <option value="2001-5000">2001-5000</option>
+                                <option value="5001-10000">5001-10000</option>
+                                <option value="10000+">10000+</option>
+                            </select>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="why-good-fit">Why would your business be a good fit for the beta program?*</label>
+                        <textarea id="why-good-fit" name="why-good-fit" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="additional-info">Additional information (optional)</label>
+                        <textarea id="additional-info" name="additional-info" rows="3"></textarea>
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary">Submit Beta Application</button>
+                    </div>
+                    <div class="form-message"></div>
+                    <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
+                    <input type="hidden" name="_captcha" value="false">
+                </form>
             </div>
         </div>
     </section>
 
-    <footer>
+    <!-- Footer Section -->
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="assets/images/revFlare-logo.png" alt="revFlare Logo">
-                    <p>Never miss a lead with instant SMS response</p>
+                    <img src="assets/images/revflare-logo.png" alt="revFlare Logo">
+                    <p>AI-Powered Lead Engagement Platform</p>
                 </div>
                 <div class="footer-links">
-                    <div class="link-group">
-                        <h4>Solutions</h4>
+                    <div class="footer-links-column">
+                        <h4>Navigation</h4>
                         <ul>
-                            <li><a href="#solutions">Speed-to-Lead SMS</a></li>
-                            <li><a href="#solutions">Database Reactivation</a></li>
-                            <li><a href="#methodologies">Sales Methodologies</a></li>
-                            <li><a href="#why-different">Industry Solutions</a></li>
+                            <li><a href="#hero">Home</a></li>
+                            <li><a href="#problem">Problem</a></li>
+                            <li><a href="#solutions">Solutions</a></li>
+                            <li><a href="#methodology">Methodology</a></li>
+                            <li><a href="#how-it-works">How It Works</a></li>
                         </ul>
                     </div>
-                    <div class="link-group">
+                    <div class="footer-links-column">
                         <h4>Beta Program</h4>
                         <ul>
-                            <li><a href="#beta">Closed Beta</a></li>
-                            <li><a href="#beta">Limited Beta</a></li>
-                            <li><a href="#beta">Open Beta</a></li>
-                            <li><a href="#signup">Apply Now</a></li>
+                            <li><a href="#beta">Overview</a></li>
+                            <li><a href="#beta-form">Apply Now</a></li>
                         </ul>
                     </div>
-                </div>
-                <div class="footer-contact">
-                    <h4>Contact Us</h4>
-                    <ul>
-                        <li><i class="fas fa-envelope"></i> <a href="mailto:revflare@gmail.com">revflare@gmail.com</a></li>
-                        <li><i class="fas fa-globe"></i> <a href="https://revflare.com">revflare.com</a></li>
-                    </ul>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                    <div class="footer-links-column">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="mailto:info@revflare.com">info@revflare.com</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 revFlare. All rights reserved.</p>
-                <div class="footer-badges">
-                    <div class="badge"><i class="fas fa-lock"></i> Secure</div>
-                    <div class="badge"><i class="fas fa-shield-alt"></i> Privacy Focused</div>
+                <div class="copyright">
+                    <p>&copy; 2025 revFlare. All rights reserved.</p>
+                </div>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- JavaScript -->
+    <script src="assets/js/particles.min.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 </html>
