@@ -91,23 +91,31 @@
   const betaForm = document.getElementById("betaForm");
   const successMsg = document.getElementById("formSuccess");
 
-  betaForm.addEventListener("submit", function(e) {
-    e.preventDefault();
-    const formData = new FormData(betaForm);
-    fetch("https://formsubmit.co/ajax/revflare@gmail.com", {
-      method: "POST",
-      body: formData
-    })
-    .then(response => {
-      if (response.ok) {
-        betaForm.reset();
-        successMsg.style.display = "block";
-      } else {
-        alert("Oops! Something went wrong. Please try again later.");
-      }
-    })
-    .catch(() => alert("Network error. Please try again later."));
-  });
+  let lastSubmitTime = 0;
+betaForm.addEventListener("submit", function(e) {
+  e.preventDefault();
+  const now = Date.now();
+  if (now - lastSubmitTime < 30000) {
+    alert("Please wait a few seconds before submitting again.");
+    return;
+  }
+  lastSubmitTime = now;
+
+  const formData = new FormData(betaForm);
+  fetch("https://formsubmit.co/ajax/revflare@gmail.com", {
+    method: "POST",
+    body: formData
+  })
+  .then(response => {
+    if (response.ok) {
+      betaForm.reset();
+      successMsg.style.display = "block";
+    } else {
+      alert("Oops! Something went wrong. Please try again later.");
+    }
+  })
+  .catch(() => alert("Network error. Please try again later."));
+});
 </script>
 </body>
 </html>
