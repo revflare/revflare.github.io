@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>revFlare | AI-Powered Lead Follow-Up</title>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
-
-  <!-- Meta SEO -->
-  <meta name="description" content="revFlare is an AI-powered Speed-to-Lead & Reactivation platform that helps service businesses convert more leads with smart follow-up.">
-  <meta name="keywords" content="AI sales assistant, speed to lead, database reactivation, service businesses, follow up leads, sales automation">
-  <meta name="author" content="revFlare">
-  <meta property="og:title" content="revFlare | Revive Revenue with AI">
-  <meta property="og:description" content="Speed-to-Lead and Database Reactivation system built to support your sales team — always on, always human-friendly.">
-  <meta property="og:image" content="assets/images/revflare-logo.png">
-  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon"/>
+  <meta name="description" content="revFlare is an AI-powered Speed-to-Lead & Reactivation platform that helps service businesses convert more leads with smart follow-up."/>
+  <meta name="keywords" content="AI sales assistant, speed to lead, database reactivation, service businesses, follow up leads, sales automation"/>
+  <meta name="author" content="revFlare"/>
+  <meta property="og:title" content="revFlare | Revive Revenue with AI"/>
+  <meta property="og:description" content="Speed-to-Lead and Database Reactivation system built to support your sales team — always on, always human-friendly."/>
+  <meta property="og:image" content="assets/images/revflare-logo.png"/>
+  <meta property="og:type" content="website"/>
 </head>
 <body>
-  <header class="hero fade-in">
-    <img src="assets/images/revflare-logo.png" alt="revFlare Logo" class="logo">
+  <header class="hero">
+    <img src="assets/images/revflare-logo.png" alt="revFlare Logo" class="logo"/>
     <h1>Revive Your Revenue with AI</h1>
     <p>Supercharge your sales growth — revFlare works alongside your team to help you thrive.</p>
     <a href="#beta" class="cta-button">Join Beta Access</a>
@@ -29,24 +27,41 @@
       <h2>🚀 Speed-to-Lead Automation</h2>
       <p>revFlare instantly replies to new leads via email-forwarding. Real human tone, no awkward botspeak.</p>
     </div>
+
+    <section class="stat-block">
+      <h3>Why Speed-to-Lead Matters</h3>
+      <ul>
+        <li>⏱ 78% of deals go to the first responder</li>
+        <li>📉 After 5 mins, conversion rates drop by 80%</li>
+        <li>💸 Most leads ghost after 15 minutes of no reply</li>
+      </ul>
+    </section>
+
+    <!-- New Flow Visual Block -->
+    <section class="diagram-section fade-in">
+      <h3>How revFlare Works Behind the Scenes</h3>
+      <img src="assets/images/lead-flow-diagram.png" alt="Lead Flow Diagram" class="diagram-img">
+      <p class="diagram-caption">Your lead form → Email forwarding → AI instantly responds via SMS using your Twilio number.</p>
+    </section>
+
     <div class="feature">
       <h2>♻️ Database Reactivation</h2>
-      <p>Old leads aren’t dead. revFlare's smart system uses SPIN + Sandler methods to bring them back to life via SMS.</p>
+      <p>Old leads aren’t dead. revFlare's smart system uses <span title="SPIN: Situation, Problem, Implication, Need-payoff. Sandler: Consultative sales framework.">SPIN + Sandler methods</span> to bring them back to life via SMS.</p>
     </div>
+
+    <section class="stat-block">
+      <h3>Why Reactivating Old Leads Pays Off</h3>
+      <ul>
+        <li>♻️ Reactivation boosts revenue by up to 15%</li>
+        <li>📊 Cost per acquisition (CAC) drops by 50%</li>
+        <li>📞 Engaged old leads convert faster than cold ones</li>
+      </ul>
+    </section>
+
     <div class="feature">
       <h2>🔒 Business-Owned Twilio</h2>
       <p>Use your own Twilio. Your number. Your brand. No centralized limits.</p>
     </div>
-  </section>
-
-  <section class="data-section fade-in">
-    <h2>Why It Works</h2>
-    <ul>
-      <li>✅ 78% of deals go to the first responder</li>
-      <li>⏱ Conversion rates drop 80% if response time exceeds 5 minutes</li>
-      <li>🚀 Reactivating old leads boosts revenue up to 15%</li>
-      <li>📊 Cutting CAC by up to 50% through re-engagement</li>
-    </ul>
   </section>
 
   <section class="form-section fade-in" id="beta">
@@ -59,12 +74,16 @@
       <input type="email" name="email" placeholder="Your Email" required>
       <input type="text" name="business" placeholder="Your Business / Industry" required>
       <textarea name="message" placeholder="Tell us why you'd be a great beta partner" required></textarea>
+      <input type="text" name="_honey" style="display:none">
       <button type="submit">Request Access</button>
     </form>
+    <p class="after-form-note">If selected, you'll receive onboarding instructions within 48 hours. We'll walk you through how revFlare works and help you get your Twilio connected. Zero tech headaches.</p>
   </section>
 
   <footer>
     <p>&copy; 2025 revFlare. All rights reserved. Built with 🔥 by a solo founder with a mission to revive revenue.</p>
   </footer>
+
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
