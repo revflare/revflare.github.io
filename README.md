@@ -1,53 +1,76 @@
-# revFlare - AI-Powered Database Reactivation
+revFlare | AI-Powered Revenue Revival Platform
 
-revFlare helps auto glass and roofing businesses reactivate dormant leads using AI-powered conversations. Our solution reengages old leads in your database, qualifies them, and delivers ready-to-close prospects to your sales team - all without additional ad spend.
 
-## Current Status
+Welcome to the official revFlare landing page — built for high-performance, human-friendly, AI-powered Speed-to-Lead and Database Reactivation.
 
-This project is currently in **beta testing** with a limited number of auto glass and roofing businesses. The website serves as our landing page for beta applications.
+This lightweight website is optimized for clarity, conversion, and showcasing what makes revFlare different: elite sales psychology (SPIN + Sandler), fast response, and real human tone.
 
-## Website Structure
+💡 What is revFlare?
 
-- `index.html` - Main landing page
-- `assets/css/style.css` - Styling and visual elements
-- `assets/js/scripts.js` - Interactive components
-- `assets/images/` - Website images and graphics
+revFlare is your sales team's new favorite sidekick.
 
-## Key Features
+We help service businesses (like real estate, financial, legal, and home services) convert more leads by:
 
-- **AI-Powered Lead Reactivation**: Conversational AI that reactivates unconverted leads
-- **Database Integration**: Works with existing CRM systems or CSV uploads
-- **Automated Qualification**: AI identifies which leads are ready to buy
-- **Sales-Ready Handoff**: Your team receives qualified leads with full conversation history
+Instantly responding to hot leads via email-to-SMS
 
-## Development Roadmap
+Reactivating old, cold, or forgotten leads
 
-1. **Database Reactivation AI** - Currently in beta
-2. **Speed to Lead AI** - Planned for Q2 2025
-3. **Out Of Hours AI** - Planned for Q3 2025
-4. **Google Reviews AI** - Planned for Q4 2025
+Qualifying and warming prospects using proven sales psychology
 
-## Technology Stack
+No botspeak. No awkward conversations. Just effective automation that works like your best rep — without burnout.
 
-- HTML5/CSS3/JavaScript
-- FormSubmit.co for form handling
-- Dark theme with flame-inspired color scheme
+✨ What Makes It Different?
 
-## Development
+🧠 Built with SPIN Selling + Sandler methodology baked in
 
-To make changes to the website:
+🔥 Uses your own Twilio number — no central account lock-in
 
-1. Clone this repository
-2. Modify files as needed
-3. Test locally
-4. Commit and push changes to main branch
+📩 Accepts email-forwarded leads, no form embedding needed
 
-```bash
-git add .
-git commit -m "Your descriptive message"
+🕒 Responds in seconds, 24/7 — and never sleeps
+
+👨‍👩‍👧‍👦 Works with human reps, not against them
+
+🚀 Beta Program
+
+We’re currently onboarding a limited number of real businesses to:
+
+Test-drive the system with real leads
+
+Help shape the product with feedback
+
+Get first access to updates and automation upgrades
+
+Want in? 👉 Visit the site and fill out the form.
+
+🎨 Website Overview
+
+This marketing site is:
+
+🔒 Static, fast-loading, secure
+
+🌒 Styled in a sleek dark theme
+
+🧬 Branded with flame-like gradients & clean UI
+
+📩 Integrated with FormSubmit
+
+📂 Tech Stack
+
+HTML5 + CSS3 (no JS required)
+
+GitHub Pages friendly (with .nojekyll)
+
+No dependencies, no build tools, just ✨ clean markup
+
+🔗 Deploy Your Version
+
+Push to GitHub and activate GitHub Pages:
+
+git add . && git commit -m "Launch revFlare site"
+
 git push origin main
-```
 
-## Contact
+Enable GitHub Pages in Settings → Pages → Source: main / (root)
 
-For questions about revFlare or to join our beta program, visit the website and complete the application form.
+Built with 🔥 by a solo founder on a mission to help you convert smarter, faster, and with a human touch.
