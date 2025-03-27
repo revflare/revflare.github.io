@@ -67,16 +67,18 @@
   <section class="form-section fade-in" id="beta">
     <h2>Request Beta Access</h2>
     <p>Limited spots available for real businesses ready to convert more leads. Apply below:</p>
-    <form action="https://formsubmit.co/revflare@gmail.com" method="POST">
+    <form id="betaForm">
       <input type="hidden" name="_subject" value="New Beta Access Request">
-      <input type="hidden" name="_next" value="thank-you.html">
+      <input type="hidden" name="_honey" style="display:none">
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
       <input type="text" name="business" placeholder="Your Business / Industry" required>
       <textarea name="message" placeholder="Tell us why you'd be a great beta partner" required></textarea>
-      <input type="text" name="_honey" style="display:none">
       <button type="submit" name="submit" value="Submit">Request Access</button>
     </form>
+    <div id="formSuccess" style="display:none; margin-top: 20px; color: #4caf50; font-weight: bold;">
+      ✅ Thanks! Your application has been received.
+    </div>
     <p class="after-form-note">If selected, you'll receive onboarding instructions within 48 hours. We'll walk you through how revFlare works and help you get your Twilio connected. Zero tech headaches.</p>
   </section>
 
@@ -85,5 +87,27 @@
   </footer>
 
   <script src="assets/js/main.js"></script>
+<script>
+  const betaForm = document.getElementById("betaForm");
+  const successMsg = document.getElementById("formSuccess");
+
+  betaForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+    const formData = new FormData(betaForm);
+    fetch("https://formsubmit.co/ajax/revflare@gmail.com", {
+      method: "POST",
+      body: formData
+    })
+    .then(response => {
+      if (response.ok) {
+        betaForm.reset();
+        successMsg.style.display = "block";
+      } else {
+        alert("Oops! Something went wrong. Please try again later.");
+      }
+    })
+    .catch(() => alert("Network error. Please try again later."));
+  });
+</script>
 </body>
 </html>
