@@ -1,0 +1,25 @@
+# Node / Build tools (just in case)
+node_modules/
+dist/
+build/
+
+# MacOS junk
+.DS_Store
+
+# VS Code settings
+.vscode/
+
+# Python / Virtualenv (not used, but safe to ignore)
+__pycache__/
+*.py[cod]
+*.env
+*.venv
+env/
+venv/
+
+# GitHub Pages build cache (if you ever use Jekyll, just to future-proof)
+_site/
+.jekyll-cache/
+
+# System junk
+Thumbs.db
