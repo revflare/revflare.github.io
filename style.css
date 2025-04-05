@@ -33,6 +33,19 @@ body {
   color: #ffffff;
 }
 
+/* === Sales Psychology Ribbon === */
+.badge-ribbon {
+  text-align: center;
+  background-color: #1e1e1e;
+  color: #ff6a00;
+  font-weight: 600;
+  padding: 10px;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  margin: 0 auto 30px auto;
+  max-width: 800px;
+}
+
 /* === Hero Section === */
 .hero {
   text-align: center;
@@ -72,6 +85,13 @@ body {
 
 .cta-button:hover {
   background-color: #e65900;
+}
+
+/* === Micro Metrics Under CTA === */
+.micro-metrics {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-top: 15px;
 }
 
 /* === Content Sections === */
@@ -119,6 +139,18 @@ ul li::before {
   border-radius: 20px;
   color: #f0f0f0;
   font-size: 0.9rem;
+}
+
+/* === Testimonial Placeholder === */
+.testimonial-placeholder {
+  margin-top: 25px;
+  font-style: italic;
+  font-size: 0.95rem;
+  background-color: #161616;
+  padding: 15px 20px;
+  border-left: 4px solid #ff6a00;
+  border-radius: 6px;
+  color: #ccc;
 }
 
 /* === Waitlist Section === */
