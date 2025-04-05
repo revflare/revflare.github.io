@@ -1,150 +1,188 @@
 /* === revFlare Landing Page Styles === */
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Inter', sans-serif;
-    background-color: #0d0d0d;
-    color: #f0f0f0;
-    line-height: 1.6;
-    padding: 20px;
-  }
-  
-  /* === Logo + Nav === */
-  .nav {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 40px;
-  }
-  
-  .logo {
-    height: 50px;
-  }
-  
-  .brand {
-    font-size: 1.6rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    color: #ffffff;
-  }
-  
-  /* === Hero Section === */
-  .hero {
-    text-align: center;
-    padding: 60px 20px;
-    background: radial-gradient(circle at top, #1e1e1e 0%, #0d0d0d 100%);
-    border-radius: 10px;
-    margin-bottom: 50px;
-  }
-  
-  .headline {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #ff6a00;
-    margin-bottom: 20px;
-  }
-  
-  .subhead {
-    font-size: 1.2rem;
-    color: #ccc;
-    margin-bottom: 30px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .cta-button {
-    background-color: #ff6a00;
-    color: white;
-    font-weight: 600;
-    font-size: 1rem;
-    padding: 14px 30px;
-    border-radius: 8px;
-    text-decoration: none;
-    display: inline-block;
-    transition: background-color 0.3s;
-  }
-  
-  .cta-button:hover {
-    background-color: #e65900;
-  }
-  
-  /* === Content Sections === */
-  section {
-    max-width: 800px;
-    margin: 0 auto 60px auto;
-    padding: 0 20px;
-  }
-  
-  h2 {
-    font-size: 1.6rem;
-    margin-bottom: 10px;
-    color: #ff9333;
-  }
-  
-  p, li {
-    font-size: 1rem;
-    color: #e0e0e0;
-    margin-bottom: 10px;
-  }
-  
-  ul {
-    list-style: none;
-    padding-left: 0;
-  }
-  
-  ul li::before {
-    content: "✔";
-    color: #ff6a00;
-    margin-right: 8px;
-  }
-  
-  /* === Pill-style Industries === */
-  .pill-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 10px;
-  }
-  
-  .pill-list li {
-    background-color: #1a1a1a;
-    border: 1px solid #333;
-    padding: 8px 16px;
-    border-radius: 20px;
-    color: #f0f0f0;
-    font-size: 0.9rem;
-  }
-  
-  /* === Waitlist Section === */
-  .waitlist iframe {
-    margin-top: 20px;
-    width: 100%;
-    border: none;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  
-  /* === Footer === */
-  .footer {
-    text-align: center;
-    padding: 20px 10px;
-    border-top: 1px solid #222;
-    color: #888;
-    font-size: 0.9rem;
-  }
-  
-  .footer a {
-    color: #ff6a00;
-    text-decoration: none;
-  }
-  
-  .footer a:hover {
-    text-decoration: underline;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #0d0d0d;
+  color: #f0f0f0;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* === Logo + Nav === */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.logo {
+  height: 50px;
+}
+
+.brand {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+}
+
+/* === Hero Section === */
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  background: radial-gradient(circle at top, #1e1e1e 0%, #0d0d0d 100%);
+  border-radius: 10px;
+  margin-bottom: 50px;
+}
+
+.headline {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ff6a00;
+  margin-bottom: 20px;
+}
+
+.subhead {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-bottom: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-button {
+  background-color: #ff6a00;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 14px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #e65900;
+}
+
+/* === Content Sections === */
+section {
+  max-width: 800px;
+  margin: 0 auto 60px auto;
+  padding: 0 20px;
+}
+
+h2 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  color: #ff9333;
+}
+
+p, li {
+  font-size: 1rem;
+  color: #e0e0e0;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul li::before {
+  content: "✔";
+  color: #ff6a00;
+  margin-right: 8px;
+}
+
+/* === Pill-style Industries === */
+.pill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.pill-list li {
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: #f0f0f0;
+  font-size: 0.9rem;
+}
+
+/* === Waitlist Section === */
+.waitlist {
+  text-align: center;
+}
+.waitlist iframe {
+  margin-top: 20px;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* === ConvertKit Embedded Form Styling === */
+.seva-form {
+  background-color: #1a1a1a !important;
+  color: #f0f0f0 !important;
+  border-radius: 8px;
+  padding: 20px;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.seva-form input,
+.seva-form button {
+  border-radius: 6px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1rem !important;
+}
+
+.seva-form input[type="email"] {
+  padding: 12px !important;
+  background-color: #000 !important;
+  color: #fff !important;
+  border: 1px solid #333 !important;
+}
+
+.seva-form button {
+  background-color: #ff6a00 !important;
+  color: white !important;
+  padding: 12px 24px !important;
+  border: none !important;
+  cursor: pointer !important;
+  font-weight: 600 !important;
+}
+
+.seva-form button:hover {
+  background-color: #e65900 !important;
+}
+
+/* === Footer === */
+.footer {
+  text-align: center;
+  padding: 20px 10px;
+  border-top: 1px solid #222;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.footer a {
+  color: #ff6a00;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
